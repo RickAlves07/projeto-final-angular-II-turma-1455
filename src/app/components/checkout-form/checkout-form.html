@@ -1,0 +1,143 @@
+  <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()" novalidate>
+    <fieldset class="border p-3">
+      <legend class="w-auto">Dados de Contato</legend>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="nomeCompleto">Nome Completo</label>
+            <input
+            type="text"
+            id="nomeCompleto"
+            class="form-control"
+            [ngClass]="{'is-invalid': control('nomeCompleto').touched && control('nomeCompleto').invalid}"
+            formControlName="nomeCompleto"
+            />
+          <div class="invalid-feedback">
+            @if(control('nomeCompleto').touched && control('nomeCompleto').hasError('required')) { <div>Nome é obrigatório.</div> }
+            @if(control('nomeCompleto').touched && control('nomeCompleto').hasError('minlength')) { <div>Mínimo de 3 caracteres.</div> }
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="email">E-mail</label>
+          <input
+            type="email"
+            id="email"
+            class="form-control"
+            [ngClass]="{'is-invalid': control('email').touched && control('email').invalid}"
+            formControlName="email"
+          />
+          <div class="invalid-feedback">
+            @if(control('email').touched && control('email').hasError('required')) { <div>E-mail é obrigatório.</div> }
+            @if(control('email').touched && control('email').hasError('email')) { <div>Formato inválido.</div> }
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="endereco">Endereço</label>
+          <input
+            type="text"
+            id="endereco"
+            class="form-control"
+            [ngClass]="{'is-invalid': control('endereco').touched && control('endereco').invalid}"
+            formControlName="endereco"
+          />
+          <div class="invalid-feedback">
+            @if(control('endereco').touched && control('endereco').hasError('required')) { <div>Endereço é obrigatório.</div> }
+            @if(control('endereco').touched && control('endereco').hasError('minlength')) { <div>Mínimo de 5 caracteres.</div> }
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <fieldset class="border p-3 mt-4">
+      <legend class="w-auto">Pagamento</legend>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="nomeNoCartao">Nome no Cartão</label>
+          <input
+            type="text"
+            id="nomeNoCartao"
+            class="form-control"
+            [ngClass]="{'is-invalid': control('nomeNoCartao').touched && control('nomeNoCartao').invalid}"
+            formControlName="nomeNoCartao"
+          />
+          <div class="invalid-feedback">
+            @if(control('nomeNoCartao').touched && control('nomeNoCartao').hasError('required')) { <div>Obrigatório.</div> }
+            @if(control('nomeNoCartao').touched && control('nomeNoCartao').hasError('minlength')) { <div>Mínimo de 3 caracteres.</div> }
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="numeroCartao">Número do Cartão</label>
+          <input
+            type="text"
+            id="numeroCartao"
+            inputmode="numeric"
+            class="form-control"
+            [ngClass]="{'is-invalid': control('numeroCartao').touched && control('numeroCartao').invalid}"
+            formControlName="numeroCartao"
+          />
+          <div class="invalid-feedback">
+            @if(control('numeroCartao').touched && control('numeroCartao').hasError('required')) { <div>Obrigatório.</div> }
+            @if(control('numeroCartao').touched && (control('numeroCartao').hasError('minlength') || control('numeroCartao').hasError('maxlength'))) { <div>Deve ter 16 dígitos.</div> }
+            @if(control('numeroCartao').touched && control('numeroCartao').hasError('digitsOnly')) { <div>Apenas números permitidos.</div> }
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="codigoSeguranca">CVC</label>
+          <input
+            type="text"
+            id="codigoSeguranca"
+            inputmode="numeric"
+            class="form-control"
+            [ngClass]="{'is-invalid': control('codigoSeguranca').touched && control('codigoSeguranca').invalid}"
+            formControlName="codigoSeguranca"
+          />
+          <div class="invalid-feedback">
+            @if(control('codigoSeguranca').touched && control('codigoSeguranca').hasError('required')) { <div>Obrigatório.</div> }
+            @if(control('codigoSeguranca').touched && (control('codigoSeguranca').hasError('minlength') || control('codigoSeguranca').hasError('maxlength'))) { <div>Deve ter 3 dígitos.</div> }
+            @if(control('codigoSeguranca').touched && control('codigoSeguranca').hasError('digitsOnly')) { <div>Apenas números permitidos.</div> }
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="validadeMes">Mês</label>
+          <input
+            type="text"
+            id="validadeMes"
+            placeholder="MM"
+            class="form-control"
+            [ngClass]="{'is-invalid': control('validadeMes').touched && control('validadeMes').invalid}"
+            formControlName="validadeMes"
+          />
+          <div class="invalid-feedback">
+            @if(control('validadeMes').touched && control('validadeMes').hasError('required')) { <div>Obrigatório.</div> }
+            @if(control('validadeMes').touched && control('validadeMes').hasError('pattern')) { <div>Mês inválido (1–12).</div> }
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="validadeAno">Ano</label>
+          <input
+            type="text"
+            id="validadeAno"
+            placeholder="AAAA"
+            class="form-control"
+            [ngClass]="{'is-invalid': control('validadeAno').touched && control('validadeAno').invalid}"
+            formControlName="validadeAno"
+          />
+          <div class="invalid-feedback">
+            @if(control('validadeAno').touched && control('validadeAno').hasError('required')) { <div>Obrigatório.</div> }
+            @if(control('validadeAno').touched && control('validadeAno').hasError('pattern')) { <div>Ano inválido.</div> }
+          </div>
+        </div>
+      </div>
+    </fieldset>
+
+    <button type="submit" class="btn btn-primary btn-block mt-3" [disabled]="!checkoutForm.valid">Finalizar Compra</button>
+
+    @if(submittedData()) {
+        <div class="alert alert-success mt-3"> Compra enviada com sucesso!</div>
+      }
+  </form>
