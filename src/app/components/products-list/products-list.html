@@ -32,8 +32,12 @@
             </div>
           </div>
           <div>
-            <button type="button" type="button" class="btn btn-secondary" (click)="resetFilters()">
-              Resetar Filtros
+            <button
+            type="button"
+            class="btn"
+            [ngClass]="isFiltered ? 'btn btn-secondary' : 'btn btn-outline-secondary'"
+            (click)="resetFilters()">
+              Limpar Filtros
             </button>
           </div>
         </div>
@@ -42,7 +46,7 @@
   </div>
 
   <div class="card-deck">
-    <div class="row row-cols-1 row-cols-md-5">
+    <div class="row row-cols-1 row-cols-md-4">
       @if ((products() ?? []).length !== 0) {
         @for (product of products(); track product.id) {
           <app-product-card [product]="product"></app-product-card>

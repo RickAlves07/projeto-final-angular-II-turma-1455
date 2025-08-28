@@ -3,10 +3,11 @@ import { ProductsService } from '../../services/products-service';
 import { ProductCard } from '../product-card/product-card';
 import { IProduct } from '../../models/interfaces/iproduct';
 import { FormsModule, ɵInternalFormsSharedModule } from "@angular/forms";
+import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-products-list',
-  imports: [ProductCard, ɵInternalFormsSharedModule, FormsModule],
+  imports: [ProductCard, ɵInternalFormsSharedModule, FormsModule, CommonModule],
   templateUrl: './products-list.html',
   styleUrl: './products-list.scss',
 })
@@ -14,6 +15,7 @@ export class ProductsList {
   private productService = inject(ProductsService);
   productFilterName: string = '';
   selectedCategoryFilter: string = '';
+  isFiltered: boolean = false;
   allProductsList = signal<IProduct[]>([]);
   products = signal<IProduct[]>([]);
   categories = signal<string[]>([]);
@@ -43,6 +45,7 @@ export class ProductsList {
   }
 
   applyFilters() {
+    this.isFiltered = true;
     const filtered = (this.allProductsList() ?? []).filter((product) =>
       product.title.includes(this.productFilterName) &&
       (this.selectedCategoryFilter === '' || product.category.includes(this.selectedCategoryFilter))
@@ -51,6 +54,7 @@ export class ProductsList {
   }
 
   resetFilters() {
+    this.isFiltered = false;
     this.productFilterName = '';
     this.selectedCategoryFilter = '';
     this.products.set(this.allProductsList());
