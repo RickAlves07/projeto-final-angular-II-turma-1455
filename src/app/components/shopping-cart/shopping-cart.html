@@ -1,35 +1,79 @@
-<div>
+<div class="shopping-cart-checkout bg-light">
   <div>
     @if ((cartItems$ | async)?.length === 0) {
-    <p>Seu carrinho está vazio.</p>
-    } @else {
-    <ul>
-      @for (item of cartItems$ | async; track item.id) {
-      <li>
-        {{ item.title }} - {{ item.price | currencyBRL }} - Quantidade
-        {{ item.quantity }}
-        <button class="btn btn-danger" (click)="subtractItem(item.id)">
-          Remover
+      <p>Seu carrinho está vazio.</p>
+      @if (isCheckout) {
+        <button class="btn btn-primary" [routerLink]="['/home']">
+          Ir para a Lista de Produtos
         </button>
-        <button class="btn btn-danger" (click)="removeItem(item.id)">
-          Excluir
-        </button>
-      </li>
       }
-    </ul>
-
+    } @else {
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th scope="col">Nome do produto</th>
+          <th scope="col">Preço</th>
+          <th scope="col">Quantidade</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        @for (item of cartItems$ | async; track item.id) {
+        <tr>
+          <td scope="row">{{ item.title }}</td>
+          <td>{{ item.price | currencyBRL }}</td>
+          <td>
+            <div>
+              <button
+                class="btn btn-outline-danger"
+                (click)="subtractItem(item.id)"
+                title="Diminuir"
+              >
+                <i class="bi bi-dash-lg"></i>
+              </button>
+              <div>{{ item.quantity }}</div>
+              <button
+                class="btn btn-outline-success"
+                (click)="addToCart(item)"
+                title="Adicionar"
+              >
+                <i class="bi bi-plus-lg"></i>
+              </button>
+            </div>
+          </td>
+          <td>
+            <div>
+              <button
+                class="btn btn-outline-danger"
+                (click)="removeItem(item.id)"
+                title="Remover Item"
+              >
+                <i class="bi bi-trash"></i>
+              </button>
+            </div>
+          </td>
+        </tr>
+        }
+      </tbody>
+    </table>
     }
   </div>
   <div>
-    <div>Total de Itens: {{ (totalItems$ | async) ?? 0 }}</div>
-    <div>Total: {{ (total$ | async) ?? 0 | currencyBRL }}</div>
+   <table class="table table-striped">
+    <tbody>
+      <tr>
+        <td>Total de Itens: {{ (totalItems$ | async) ?? 0 }}</td>
+        <td>Valor Total: {{ (total$ | async) ?? 0 | currencyBRL }}</td>
+      </tr>
+    </tbody>
+   </table>
   </div>
   @if (!isCheckout) {
   <div class="d-flex justify-content-center">
-    <button class="btn btn-info mt-auto" (click)="closeCart()">
+    <button class="btn btn-outline-primary mt-auto" (click)="closeCart()">
       Fechar Carrinho
     </button>
-    <button [routerLink]="['/checkout']" class="btn btn-success mt-auto">
+    <button [routerLink]="['/checkout']" class="btn btn-primary mt-auto">
       Ir para o Checkout
     </button>
   </div>

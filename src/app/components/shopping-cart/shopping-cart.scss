@@ -1,0 +1,19 @@
+.shopping-cart-fixed {
+  // background-color: cyan;
+  width: 30%; // largura do menu lateral
+  position: fixed; // fixa no lado direito
+  right: 0;
+  height: 100vh; // ocupa toda altura da tela
+  border-left: 1px solid #ddd;
+  padding: 20px;
+  box-shadow: -2px 0 5px black;
+  z-index: 1000; // sobrepõe conteúdo
+  overflow-y: auto; // rolagem se o conteúdo ultrapassar a altura
+  transition: transform 0.3s ease-in-out;
+}
+
+.shopping-cart-checkout {
+  position: relative;
+  height: 100%;
+  z-index: 0; // sobrepõe conteúdo
+}
