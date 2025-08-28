@@ -1,4 +1,7 @@
-<app-header class="bg-dark" />
+<app-header class="bg-dark" (cartOpened)="onCartOpened($event)" [isCartOpened]="isCartOpened"/>
 <main class="container">
+  @if (isCartOpened) {
+    <app-shopping-cart (cartClosed)="onCartClosed($event)"></app-shopping-cart>
+  }
   <router-outlet />
 </main>
