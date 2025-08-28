@@ -1,5 +1,6 @@
 <div>
   <button class="nav-link text-light" (click)="openCart()">
+    {{ (totalItems$ | async) ?? 0 }}
     <i class="bi bi-cart"></i>
     <span> Carrinho</span>
   </button>

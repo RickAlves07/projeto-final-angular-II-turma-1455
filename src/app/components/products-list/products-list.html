@@ -1,32 +1,58 @@
-<h2>Lista de Produtos</h2>
-<div class="card-deck">
-  <div class="row row-cols-1 row-cols-md-5">
-    @for (product of products(); track product.id) {
-    <div class="col mb-4">
-      <div class="card h-100">
-        <div>
-          <img
-            class="card-img-top img-thumbnail"
-            [src]="product.image"
-            alt="{{ product.title }}"
-          />
-        </div>
-        <div class="card-body d-flex flex-column">
-          <div>
-            <h5 class="card-title">{{ product.title }}</h5>
+@if ((allProductsList() ?? []).length !== 0) {
+<div>
+  <h1>Lista de Produtos</h1>
+  <div>
+    <section>
+      <fieldset class="border p-3 mt-4">
+        <legend class="w-auto">Filtros</legend>
+        <div class="form-row">
+          <div class="col">
+            <label for="productName">Nome do Produto</label>
+            <input
+              type="text"
+              class="form-control"
+              id="productName"
+              placeholder="Digite o nome de um produto"
+              [(ngModel)]="productFilterName"
+              (ngModelChange)="filterProductsByName(productFilterName)"
+            />
+          </div>
+          <div class="col">
+            <div class="input-group mb-3">
+              <label class="input-group-text" for="inputGroupSelect01">
+                Categoria
+              </label>
+                <select [(ngModel)]="selectedCategoryFilter" class="custom-select col-9" id="inputGroupSelect01"
+                (ngModelChange)="filterProductsByCategory(selectedCategoryFilter)">
+                  <option selected disabled value="">Escolha...</option>
+                  @for (item of categories(); track $index) {
+                    <option [value]="item">{{ item }}</option>
+                  }
+                </select>
+            </div>
           </div>
           <div>
-            <p class="card-text">{{ product.price }}</p>
+            <button type="button" type="button" class="btn btn-secondary" (click)="resetFilters()">
+              Resetar Filtros
+            </button>
           </div>
-          <button
-            [routerLink]="['/product-detail', product.id]"
-            class="btn btn-primary mt-auto"
-          >
-            Ver Detalhes
-          </button>
         </div>
-      </div>
+      </fieldset>
+    </section>
+  </div>
+
+  <div class="card-deck">
+    <div class="row row-cols-1 row-cols-md-5">
+      @if ((products() ?? []).length !== 0) {
+        @for (product of products(); track product.id) {
+          <app-product-card [product]="product"></app-product-card>
+        }
+      } @else {
+        <div class="col">
+          <p>Nenhum produto encontrado.</p>
+        </div>
+      }
     </div>
-    }
   </div>
 </div>
+}
