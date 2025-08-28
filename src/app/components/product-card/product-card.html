@@ -15,12 +15,17 @@
         <div>
           <p class="card-text">{{ product.price | currencyBRL }}</p>
         </div>
-        <button
-          [routerLink]="['/product-detail', product.id]"
-          class="btn btn-primary mt-auto"
-        >
-          Ver Detalhes
-        </button>
+        <div class="row row-cols-1 row-cols-md-2">
+          <button
+            [routerLink]="['/product-detail', product.id]"
+            class="btn btn-primary mt-auto"
+          >
+            Ver Detalhes
+          </button>
+          <button class="btn btn-success" (click)="addToCart()">
+            Adicionar ao carrinho
+          </button>
+        </div>
       </div>
     </div>
   </div>
