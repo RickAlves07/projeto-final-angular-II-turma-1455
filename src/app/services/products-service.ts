@@ -8,7 +8,7 @@ import { IProduct } from '../interfaces/iproduct';
   providedIn: 'root',
 })
 export class ProductsService {
-  private apiUrl = `${environments.apiUrlFakeStore}/produtos`;
+  private apiUrl = `${environments.apiUrlFakeStore}/products`;
 
   constructor(private http: HttpClient) {}
   getProducts(): Observable<IProduct[]> {
