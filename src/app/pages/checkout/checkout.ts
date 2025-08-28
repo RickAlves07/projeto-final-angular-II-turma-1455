@@ -1,59 +1,13 @@
-import { Component, signal } from '@angular/core';
+import { Component } from '@angular/core';
+import { CheckoutForm } from '../../components/checkout-form/checkout-form';
 import { ShoppingCart } from '../../components/shopping-cart/shopping-cart';
-import { CommonModule } from '@angular/common';
-import { AbstractControl, FormBuilder, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
-import { digitsOnlyValidator } from '../../shared/validators/digits-only.validator';
 
 @Component({
   selector: 'app-checkout',
-  imports: [ShoppingCart, CommonModule, ReactiveFormsModule],
+  imports: [ShoppingCart, CheckoutForm],
   templateUrl: './checkout.html',
   styleUrl: './checkout.scss',
 })
 export class Checkout {
-  private fb = new FormBuilder();
 
-  regexMes = /^(0?[1-9]|1[0-2])$/;
-  regexAno = /^(\d{4})$/;
-
-  checkoutForm: FormGroup = this.fb.group({
-    nomeCompleto: ['', [Validators.required, Validators.minLength(3)]],
-    email: ['', [Validators.required, Validators.email]],
-    endereco: ['', [Validators.required, Validators.minLength(5)]],
-
-    nomeNoCartao: ['', [Validators.required, Validators.minLength(3)]],
-    numeroCartao: [
-      '',
-      [
-        Validators.required,
-        Validators.minLength(16),
-        Validators.maxLength(16),
-        digitsOnlyValidator(),
-      ],
-    ],
-    codigoSeguranca: [
-      '',
-      [
-        Validators.required,
-        Validators.minLength(3),
-        Validators.maxLength(3),
-        digitsOnlyValidator(),
-      ],
-    ],
-    validadeMes: ['', [Validators.required, Validators.pattern(this.regexMes)]],
-    validadeAno: ['', [Validators.required, Validators.pattern(this.regexAno)]],
-  });
-
-  submittedData = signal<any | null>(null);
-
-  onSubmit() {
-    this.checkoutForm.markAllAsTouched();
-    if (this.checkoutForm.valid) {
-      this.submittedData.set(this.checkoutForm.value);
-    }
-  }
-
-  control(name: string): AbstractControl {
-    return this.checkoutForm.get(name)!;
-  }
 }
