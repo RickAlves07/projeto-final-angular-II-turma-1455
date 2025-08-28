@@ -2,20 +2,20 @@ import { Injectable } from '@angular/core';
 import { environments } from '../environments/environments';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { Product } from '../interfaces/product';
+import { IProduct } from '../interfaces/iproduct';
 
 @Injectable({
   providedIn: 'root',
 })
-export class Products {
+export class ProductsService {
   private apiUrl = `${environments.apiUrlFakeStore}/produtos`;
 
   constructor(private http: HttpClient) {}
-  getProducts(): Observable<Product[]> {
-    return this.http.get<Product[]>(this.apiUrl);
+  getProducts(): Observable<IProduct[]> {
+    return this.http.get<IProduct[]>(this.apiUrl);
   }
 
-  getProductById(id: number): Observable<Product> {
-    return this.http.get<Product>(`${this.apiUrl}/${id}`);
+  getProductById(id: number): Observable<IProduct> {
+    return this.http.get<IProduct>(`${this.apiUrl}/${id}`);
   }
 }
