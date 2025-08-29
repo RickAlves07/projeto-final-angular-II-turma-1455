@@ -15,6 +15,7 @@ export class Header {
     this.isCartOpened = !this.isCartOpened;
     this.cartOpened.emit(this.isCartOpened);
   }
+
   onCartOpened(isOpened: boolean) {
     this.isCartOpened = isOpened;
     this.cartOpened.emit(this.isCartOpened);

@@ -1,4 +1,4 @@
-@if ((allProductsList() ?? []).length !== 0) {
+@if (allProductsList().length !== 0) {
 <div>
   <h1>Lista de Produtos</h1>
   <div>
@@ -45,7 +45,7 @@
 
   <div class="card-deck">
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
-      @if ((products() ?? []).length !== 0) {
+      @if (products().length !== 0) {
         @for (product of products(); track product.id) {
           <app-product-card [product]="product"></app-product-card>
         }
