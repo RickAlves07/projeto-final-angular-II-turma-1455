@@ -135,7 +135,7 @@
       </div>
     </fieldset>
 
-    <button type="submit" class="btn btn-primary btn-block mt-3" [disabled]="!checkoutForm.valid">Finalizar Compra</button>
+    <button type="submit" class="btn btn-primary btn-block mt-3" [disabled]="!checkoutForm.valid || !(cartItems$ | async)?.length">Finalizar Compra</button>
 
     @if(submittedData()) {
         <div class="alert alert-success mt-3"> Compra enviada com sucesso!</div>

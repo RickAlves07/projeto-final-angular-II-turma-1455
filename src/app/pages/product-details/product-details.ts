@@ -6,10 +6,11 @@ import { map, switchMap } from 'rxjs';
 import { Store } from '@ngrx/store';
 import * as CartActions from '../../store/cart.actions';
 import { CommonModule } from '@angular/common';
+import { CurrencyBRLPipe } from '../../pipes/currency-brl.pipe';
 
 @Component({
   selector: 'app-product-details',
-  imports: [CommonModule],
+  imports: [CommonModule, CurrencyBRLPipe],
   templateUrl: './product-details.html',
   styleUrl: './product-details.scss',
 })

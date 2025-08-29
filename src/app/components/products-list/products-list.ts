@@ -47,8 +47,8 @@ export class ProductsList {
   applyFilters() {
     this.isFiltered = true;
     const filtered = (this.allProductsList() ?? []).filter((product) =>
-      product.title.includes(this.productFilterName) &&
-      (this.selectedCategoryFilter === '' || product.category.includes(this.selectedCategoryFilter))
+      product.title.toLocaleLowerCase().includes(this.productFilterName.toLocaleLowerCase()) &&
+      (this.selectedCategoryFilter === '' || product.category.toLocaleLowerCase().includes(this.selectedCategoryFilter.toLocaleLowerCase()))
     );
     this.products.set(filtered);
   }

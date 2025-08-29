@@ -6,10 +6,16 @@
         </div>
         <div class="card-body">
             <img [src]="product()?.image" alt="{{ product()?.title}}" width="30%" />
-            <p class="card-text">Descrição: {{ product()?.description }}</p>
-            <p class="card-text">Preço: {{ product()?.price }}</p>
+            <div>
+              <label>Descrição:</label>
+              <p class="card-text">{{ product()?.description }}</p>
+            </div>
+            <div>
+              <label>Preço:</label>
+              <p class="card-text">{{ product()?.price }}</p>
+            </div>
         </div>
-        <div class="card-footer">
+        <div class="card-footer d-flex justify-content-end">
             <button class="btn btn-primary" (click)="addToCart()">Adicionar ao carrinho</button>
         </div>
     </div>

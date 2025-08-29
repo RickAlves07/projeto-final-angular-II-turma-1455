@@ -1,6 +1,7 @@
 import { createReducer, on } from '@ngrx/store';
 import {
   addProductToCart,
+  removeAllProductsFromCart,
   removeAllQuantityProductFromCart,
   removeProductFromCart,
 } from './cart.actions';
@@ -50,7 +51,16 @@ export const cartReducer = createReducer(
       totalItems: updatedItems.reduce((sum, item) => sum + item.quantity, 0),
       total: calculateTotal(updatedItems),
     };
-  })
+  }),
+
+  on(removeAllProductsFromCart, (state) => {
+    return {
+      ...state,
+      items: [],
+      totalItems: 0,
+      total: 0,
+    };
+  }),
 );
 
 function calculateTotal(items: any[]): number {

@@ -14,3 +14,7 @@ export const removeAllQuantityProductFromCart = createAction(
   '[Cart] Remove All Quantity Product',
   props<{ productId: number }>()
 );
+
+export const removeAllProductsFromCart = createAction(
+  '[Cart] Remove All Products'
+);

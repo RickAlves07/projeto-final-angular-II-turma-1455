@@ -1,4 +1,4 @@
-import { AsyncPipe } from '@angular/common';
+import { AsyncPipe, CommonModule } from '@angular/common';
 import { Component, EventEmitter, inject, Input, Output } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { Store } from '@ngrx/store';
@@ -9,7 +9,7 @@ import { IProduct } from '../../models/interfaces/iproduct';
 
 @Component({
   selector: 'app-shopping-cart',
-  imports: [RouterModule, AsyncPipe, CurrencyBRLPipe],
+  imports: [RouterModule, AsyncPipe, CurrencyBRLPipe, CommonModule],
   templateUrl: './shopping-cart.html',
   styleUrl: './shopping-cart.scss',
 })
@@ -43,6 +43,11 @@ export class ShoppingCart {
   removeItem(productId: number) {
     this.store.dispatch(CartActions.removeAllQuantityProductFromCart({ productId }));
     console.log('Product removed from cart:', 'productId:', productId);
+  }
+
+  removeAll() {
+    this.store.dispatch(CartActions.removeAllProductsFromCart());
+    console.log('All products removed from cart');
   }
 
   closeCart() {
