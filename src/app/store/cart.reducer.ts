@@ -10,6 +10,7 @@ import { initialCartState } from './cart.state';
 export const cartReducer = createReducer(
   initialCartState,
   on(addProductToCart, (state, { product }) => {
+    console.log('Product added to cart:', 'productId:', product.id);
     const existingItem = state.items.find((item) =>
       item.id === product.id
     );
@@ -32,6 +33,7 @@ export const cartReducer = createReducer(
   }),
 
   on(removeProductFromCart, (state, { productId }) => {
+    console.log('Product subtracted from cart:', 'productId:', productId);
     const updatedItems = state.items.map((item) =>
         item.id === productId ? { ...item, quantity: item.quantity - 1 } : item
     ).filter((item) => item.quantity > 0);
@@ -44,6 +46,7 @@ export const cartReducer = createReducer(
   }),
 
   on(removeAllQuantityProductFromCart, (state, { productId }) => {
+    console.log('Product removed from cart:', 'productId:', productId);
     const updatedItems = state.items.filter((item) => item.id !== productId);
     return {
       ...state,
@@ -54,6 +57,7 @@ export const cartReducer = createReducer(
   }),
 
   on(removeAllProductsFromCart, (state) => {
+    console.log('All products removed from cart');
     return {
       ...state,
       items: [],

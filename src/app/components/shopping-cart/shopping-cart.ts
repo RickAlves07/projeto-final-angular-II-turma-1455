@@ -31,22 +31,18 @@ export class ShoppingCart {
 
   addToCart(product: IProduct){
     this.store.dispatch(CartActions.addProductToCart({ product: product }));
-    console.log('Product added to cart:', 'productId:', product?.id);
   }
 
   subtractItem(productId: number) {
     this.store.dispatch(CartActions.removeProductFromCart({ productId }));
-    console.log('Product subtracted from cart:', 'productId:', productId);
   }
 
   removeItem(productId: number) {
     this.store.dispatch(CartActions.removeAllQuantityProductFromCart({ productId }));
-    console.log('Product removed from cart:', 'productId:', productId);
   }
 
   removeAll() {
     this.store.dispatch(CartActions.removeAllProductsFromCart());
-    console.log('All products removed from cart');
   }
 
   closeCart() {

@@ -27,9 +27,6 @@ export class ProductDetails {
   );
 
   addToCart() {
-    this.store.dispatch(
-      CartActions.addProductToCart({ product: this.product() })
-    );
-    console.log('Product added to cart:', 'productId:', this.product()?.id);
+    this.store.dispatch(CartActions.addProductToCart({ product: this.product() }));
   }
 }
