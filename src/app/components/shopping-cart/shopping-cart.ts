@@ -30,7 +30,6 @@ export class ShoppingCart {
   }
 
   addToCart(product: IProduct){
-    // product.quantity = 1;
     this.store.dispatch(CartActions.addProductToCart({ product: product }));
     console.log('Product added to cart:', 'productId:', product?.id);
   }

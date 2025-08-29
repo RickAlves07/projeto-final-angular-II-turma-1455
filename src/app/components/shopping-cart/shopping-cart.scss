@@ -1,19 +1,30 @@
 .shopping-cart-fixed {
-  // background-color: cyan;
-  width: 30%; // largura do menu lateral
-  position: fixed; // fixa no lado direito
+  width: 30rem;
+  position: fixed;
   right: 0;
-  height: 100vh; // ocupa toda altura da tela
+  height: -webkit-fill-available;
   border-left: 1px solid #ddd;
-  padding: 20px;
-  box-shadow: -2px 0 5px black;
-  z-index: 1000; // sobrepõe conteúdo
-  overflow-y: auto; // rolagem se o conteúdo ultrapassar a altura
-  transition: transform 0.3s ease-in-out;
+  padding: 6rem 20px;
+  box-shadow: -2px 0 5px gray;
+  margin-top: -5rem;
+  z-index: 10;
+}
+
+.shopping-card-content{
+  position: relative;
+  overflow-y: auto;
+  height: 75vh;
 }
 
 .shopping-cart-checkout {
   position: relative;
-  height: 100%;
-  z-index: 0; // sobrepõe conteúdo
+  z-index: 0;
+  height: -webkit-fill-available;
+}
+
+.shopping-cart-actions {
+  padding: 30px 0;
+  position: fixed;
+  bottom: 0;
+  width: -webkit-fill-available;
 }
