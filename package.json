@@ -1,6 +1,7 @@
 {
   "name": "projeto-final-angular-i-turma-1455",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "author": "Rick Alves",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
