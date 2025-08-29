@@ -2,9 +2,10 @@
 
 Este é um projeto desenvolvido como trabalho final para a disciplina de Angular I, Turma 1455. O objetivo é demonstrar conhecimentos em Angular, incluindo componentes, serviços, rotas, pipes, validações e gerenciamento de estado.
 
-## 🛠️ Tecnologias Utilizadas
+## 🛠️ Tecnologias e Serviços Utilizadas
 
 - [Angular CLI 20.1.5](https://github.com/angular/angular-cli)
+- [Fake Store API](https://fakestoreapi.com) (configuração na pasta `src/environments`)
 
 ## 🚀 Executar o Projeto
 
@@ -18,7 +19,6 @@ Este é um projeto desenvolvido como trabalho final para a disciplina de Angular
    ng serve
    ```
    Acesse `http://localhost:4200/` no navegador.
-
 
 ## 🗺️ Rotas Principais
 
