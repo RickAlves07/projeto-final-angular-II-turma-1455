@@ -1,6 +1,6 @@
 # Projeto Final Angular I - Turma 1455
 
-Este é um projeto desenvolvido como trabalho final para a disciplina de Angular I, Turma 1455. O objetivo é demonstrar conhecimentos em Angular, incluindo componentes, serviços, rotas, pipes, validações e gerenciamento de estado.
+Este é um projeto desenvolvido como trabalho final para a disciplina de Angular III modulo II, Turma 1455. O objetivo é demonstrar conhecimentos em Angular, incluindo componentes, serviços, rotas, pipes, validações e gerenciamento de estado.
 
 ## 🛠️ Tecnologias e Serviços Utilizadas
 
