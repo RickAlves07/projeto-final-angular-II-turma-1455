@@ -16,6 +16,11 @@ export class Header {
     this.cartOpened.emit(this.isCartOpened);
   }
 
+  logedTexts = {
+    text: 'Login',
+    icon: 'login',
+  }
+
   onCartOpened(isOpened: boolean) {
     this.isCartOpened = isOpened;
     this.cartOpened.emit(this.isCartOpened);

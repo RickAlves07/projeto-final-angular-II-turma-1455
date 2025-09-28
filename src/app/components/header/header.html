@@ -4,14 +4,36 @@
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-          <a class="nav-link" [routerLink]="['/home']">Pagina Inicial</a>
+        <li>
+          <a class="nav-link" [routerLink]="['/home']">
+            <span>Listagem</span>
+          </a>
         </li>
-        <li class="nav-item">
+
+        <li>
+          <a class="nav-link">
+            <span>Cadastrar Novo</span>
+          </a>
+        </li>
+
+        <li>
           <app-cart-status
             (cartOpened)="onCartOpened($event)"
             [isCartOpened]="isCartOpened"
           ></app-cart-status>
+        </li>
+
+        <!-- <li>
+          <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
+            <mat-button-toggle value="português">Português</mat-button-toggle>
+            <mat-button-toggle value="inglês">Inglês</mat-button-toggle>
+          </mat-button-toggle-group>
+        </li> -->
+        <li>
+          <a class="nav-link">
+            <span>{{ logedTexts.text }}</span>
+            <span>{{ logedTexts.icon }}</span>
+          </a>
         </li>
       </ul>
     </div>
