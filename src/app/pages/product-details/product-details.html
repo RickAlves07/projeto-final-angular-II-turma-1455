@@ -16,7 +16,17 @@
             </div>
         </div>
         <div class="card-footer d-flex justify-content-end">
-            <button class="btn btn-primary" (click)="addToCart()">Adicionar ao carrinho</button>
+          <!-- [routerLink]="['/product-detail', product.id]" -->
+          <button 
+
+            class="btn btn-primary mt-auto"
+          >
+            <span>Editar </span>
+            <i class="bi bi-pencil"></i>
+          </button>
+            <button class="btn btn-primary" (click)="addToCart()">Adicionar ao carrinho
+              <i class="bi bi-plus-lg"></i>
+            </button>
         </div>
     </div>
   </div>
