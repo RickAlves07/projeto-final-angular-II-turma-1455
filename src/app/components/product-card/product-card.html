@@ -1,7 +1,7 @@
 <div>
   <div class="col mb-4">
     <div class="card">
-      <div class="p-2 ">
+      <div class="p-2">
         <img
           class="card-img-top img-thumbnail"
           [src]="product.image"
@@ -20,10 +20,19 @@
             [routerLink]="['/product-detail', product.id]"
             class="btn btn-primary mt-auto"
           >
-            Ver Detalhes
+            <!-- <span>Ver Detalhes</span> -->
+            <i class="bi bi-search"></i>
           </button>
-          <button class="btn btn-success" (click)="addToCart()">
-            Adicionar ao carrinho
+          <button
+            [routerLink]="['/product-detail', product.id]"
+            class="btn btn-primary mt-auto"
+          >
+            <!-- <span>Editar </span> -->
+            <i class="bi bi-pencil"></i>
+          </button>
+          <button class="btn btn-outline-success" (click)="addToCart()">
+            <!-- <span>Adicionar ao Carrinho</span> -->
+            <i class="bi bi-plus-lg"></i>
           </button>
         </div>
       </div>
