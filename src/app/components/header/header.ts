@@ -17,8 +17,8 @@ export class Header {
   }
 
   logedTexts = {
-    text: 'Login',
-    icon: 'login',
+    text: 'Login ',
+    icon: 'bi-box-arrow-in-right',
   }
 
   onCartOpened(isOpened: boolean) {

@@ -11,7 +11,7 @@
         </li>
 
         <li>
-          <a class="nav-link">
+          <a class="nav-link" [routerLink]="['/movies/new']">
             <span>Cadastrar Novo</span>
           </a>
         </li>
@@ -23,16 +23,17 @@
           ></app-cart-status>
         </li>
 
-        <!-- <li>
-          <mat-button-toggle-group name="fontStyle" aria-label="Font Style">
-            <mat-button-toggle value="português">Português</mat-button-toggle>
-            <mat-button-toggle value="inglês">Inglês</mat-button-toggle>
-          </mat-button-toggle-group>
-        </li> -->
         <li>
-          <a class="nav-link">
+          <div class="btn-group" role="group">
+            <button type="button" class="btn btn-outline-secondary active">Português</button>
+            <button type="button" class="btn btn-outline-secondary">Inglês</button>
+          </div>
+        </li>
+
+        <li>
+          <a class="nav-link" [routerLink]="['/login']">
             <span>{{ logedTexts.text }}</span>
-            <span>{{ logedTexts.icon }}</span>
+            <i class="bi {{ logedTexts.icon }}"></i>
           </a>
         </li>
       </ul>
