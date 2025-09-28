@@ -1,1 +1,41 @@
-<p>login works!</p>
+<form [formGroup]="loginForm" (ngSubmit)="onSubmit()" novalidate>
+  <fieldset class="border p-3">
+    <legend class="w-auto">Dados de Login</legend>
+    <div class="form-row">
+      <div class="form-group">
+        <label for="email">E-mail</label>
+        <input
+          type="email"
+          id="email"
+          class="form-control"
+          [ngClass]="{'is-invalid': control('email').touched && control('email').invalid}"
+          formControlName="email"
+        />
+        <div class="invalid-feedback">
+          @if(control('email').touched && control('email').hasError('required')) { <div>E-mail é obrigatório.</div> }
+          @if(control('email').touched && control('email').hasError('email')) { <div>Formato inválido.</div> }
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Senha</label>
+        <input
+          type="text"
+          id="password"
+          class="form-control"
+          [ngClass]="{'is-invalid': control('password').touched && control('password').invalid}"
+          formControlName="password"
+        />
+        <div class="invalid-feedback">
+          @if(control('password').touched && control('password').hasError('required')) { <div>Endereço é obrigatório.</div> }
+          @if(control('password').touched && control('password').hasError('minlength')) { <div>Mínimo de 5 caracteres.</div> }
+        </div>
+      </div>
+    </div>
+    <div>
+      <button type="submit" class="btn btn-primary btn-block mt-3" [disabled]="!loginForm.valid">Login</button>
+      <span>ou</span>
+      <button type="button" class="btn btn-outline-primary btn-block mt-3" [routerLink]="['/register']">Registrar-se</button>
+    </div>
+
+  </fieldset>
+</form>
