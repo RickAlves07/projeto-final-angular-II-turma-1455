@@ -5,9 +5,9 @@ echo.
 echo.
 
 @echo off
-echo Instalar o Angular CLI na versao 20 dependencias e Iniciar a aplicacao
+echo Instalar o Angular CLI, dependencias e Iniciar a aplicacao
 @echo on
-npm install @angular/cli@20.1.0 && npm install && npm run start
+npm install @angular/cli && npm install && npm run start
 @echo off
 
 echo.
