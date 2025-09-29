@@ -11,7 +11,7 @@ interface RegisterResponse { token: string };
   providedIn: 'root'
 })
 export class AuthService {
-  private apiUrl = `${environments.apiUrlFakeStore}`;
+  private apiUrl = `${environments.apiMoviesUrl}`;
   private expTimer: any;
 
   constructor(private http: HttpClient) {}
