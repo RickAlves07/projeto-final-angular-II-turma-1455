@@ -19,14 +19,14 @@
       <div class="form-group">
         <label for="password">Senha</label>
         <input
-          type="text"
+          type="password"
           id="password"
           class="form-control"
           [ngClass]="{'is-invalid': control('password').touched && control('password').invalid}"
           formControlName="password"
         />
         <div class="invalid-feedback">
-          @if(control('password').touched && control('password').hasError('required')) { <div>Endereço é obrigatório.</div> }
+          @if(control('password').touched && control('password').hasError('required')) { <div>Senha é obrigatória.</div> }
           @if(control('password').touched && control('password').hasError('minlength')) { <div>Mínimo de 5 caracteres.</div> }
         </div>
       </div>

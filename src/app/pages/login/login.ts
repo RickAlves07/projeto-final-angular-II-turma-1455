@@ -14,7 +14,7 @@ export class Login {
   loginForm: FormGroup = new FormGroup({});
   submittedData = signal<any | null>(null);
 
-  constructor(authService: AuthService, router: Router) {
+  constructor(private authService: AuthService, private router: Router) {
     this.initLoginForm();
   }
 
@@ -25,14 +25,30 @@ export class Login {
     });
   }
 
-  onSubmit() {
-    this.loginForm.markAllAsTouched();
-    if (this.loginForm.valid) {
-      this.submittedData.set(this.loginForm.value);
-    }
-  }
-
   control(name: string): AbstractControl {
     return this.loginForm.get(name)!;
+  }
+
+  onSubmit() {
+    this.authService.loginUser(
+      this.loginForm.get("email")?.value,
+      this.loginForm.get("password")?.value
+    ).subscribe({
+      next: (isLoggedIn: boolean) => {
+        if (!isLoggedIn) {
+            const a = "Não foi possível logar. Tente novamente com credenciais válidas!";
+            return;
+        }
+        this.loginForm.markAllAsTouched();
+        if (this.loginForm.valid) {
+          this.submittedData.set(this.loginForm.value);
+        }
+        this.authService.scheduleLogout();
+        this.router.navigate(['']);
+      },
+      error: (err) => {
+        const a = "Login inválido. Por favor, digite credenciais válidas!";
+      }
+    });
   }
 }
