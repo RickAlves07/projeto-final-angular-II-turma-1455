@@ -8,7 +8,7 @@ const login = async (req, res) => {
   if (!email || !password) return res.status(400).json({ error: 'Email and password are required' });
 
   const user = userModel.findByEmail(email);
-  if (!user) return res.status(401).json({ error: 'Invalid email or password' });
+  if (!user) return res.status(404).json({ error: 'user not registered!' });
 
   const match = await bcrypt.compare(password, user.password);
   if (!match) return res.status(401).json({ error: 'Invalid email or password' });
