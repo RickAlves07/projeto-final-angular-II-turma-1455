@@ -1,1 +1,102 @@
-<p>new-movie works!</p>
+<form [formGroup]="newMovieForm" (ngSubmit)="onSubmit()" novalidate>
+  <fieldset class="border p-3">
+    <legend class="w-auto">Cadastrar novo filme</legend>
+    <div class="form-row">
+
+      <div class="form-group">
+        <label for="title">Titulo</label>
+        <input
+          type="text"
+          id="title"
+          class="form-control"
+          [ngClass]="{'is-invalid': control('title').touched && control('title').invalid}"
+          formControlName="title"
+        />
+        <div class="invalid-feedback">
+          @if(control('title').touched && control('title').hasError('required')) { <div>Titulo é obrigatório.</div> }
+          @if(control('description').touched && control('description').hasError('maxlength')) { <div>Tamanho maximo atigingido (30 caracteres).</div> }
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="genre">Gênero</label>
+        <input
+          type="text"
+          id="genre"
+          class="form-control"
+          [ngClass]="{'is-invalid': control('genre').touched && control('genre').invalid}"
+          formControlName="genre"
+        />
+        <div class="invalid-feedback">
+          @if(control('genre').touched && control('genre').hasError('required')) { <div>Gênero é obrigatório.</div> }
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="plataform">Plataforma</label>
+        <input
+          type="text"
+          id="plataform"
+          class="form-control"
+          [ngClass]="{'is-invalid': control('plataform').touched && control('plataform').invalid}"
+          formControlName="plataform"
+        />
+        <div class="invalid-feedback">
+          @if(control('plataform').touched && control('plataform').hasError('required')) { <div>Plataforma é obrigatório.</div> }
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="price">Preço (R$)</label>
+        <input
+          type="number"
+          id="price"
+          class="form-control"
+          [ngClass]="{'is-invalid': control('price').touched && control('price').invalid}"
+          formControlName="price"
+          step="0.01"
+        />
+        <div class="invalid-feedback">
+          @if(control('price').touched && control('price').hasError('required')) { <div>Preço é obrigatório.</div> }
+          @if(control('price').touched && control('price').hasError('min')) { <div>Preço deve ser maior que 0.</div> }
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="description">Descrição</label>
+        <input
+          type="text"
+          id="description"
+          class="form-control"
+          [ngClass]="{'is-invalid': control('description').touched && control('description').invalid}"
+          formControlName="description"
+        />
+        <div class="invalid-feedback">
+          @if(control('description').touched && control('description').hasError('required')) { <div>Descrição é obrigatório.</div> }
+          @if(control('description').touched && control('description').hasError('maxlength')) { <div>Tamanho maximo atigingido (200 caracteres).</div> }
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="availableInStock">Estoque</label>
+        <input
+          type="number"
+          id="availableInStock"
+          class="form-control"
+          [ngClass]="{'is-invalid': control('availableInStock').touched && control('availableInStock').invalid}"
+          formControlName="availableInStock"
+          step="1.0"
+        />
+        <div class="invalid-feedback">
+          @if(control('availableInStock').touched && control('availableInStock').hasError('required')) { <div>Estoque é obrigatório.</div> }
+          @if(control('availableInStock').touched && control('availableInStock').hasError('min')) { <div>Estoque deve ser maior que 0.</div> }
+        </div>
+      </div>
+
+    </div>
+    <div>
+      <button type="button" class="btn btn-outline-primary btn-block mt-3" [disabled]="!newMovieForm.valid">Cadastrar</button>
+    </div>
+
+  </fieldset>
+</form>
