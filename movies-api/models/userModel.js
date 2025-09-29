@@ -6,7 +6,7 @@ const selectByIdWithPass = db.prepare(`SELECT * FROM users WHERE id = ?`);
 const selectByEmail = db.prepare(`SELECT * FROM users WHERE email = ?`);
 
 const insertUser = db.prepare(`
-INSERT INTO users (id, username, email, password) VALUES (1, 'Admin', 'admin@email.com', '123')
+INSERT INTO users (id, username, email, password) VALUES (?, ?, ?, ?)
 `);
 
 function updateUserDynamic(id, data) {
