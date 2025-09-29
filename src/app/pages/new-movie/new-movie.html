@@ -1,4 +1,4 @@
-<form [formGroup]="newMovieForm" (ngSubmit)="onSubmit()" novalidate>
+<form [formGroup]="movieForm" (ngSubmit)="onSubmit()" novalidate>
   <fieldset class="border p-3">
     <legend class="w-auto">Cadastrar novo filme</legend>
     <div class="form-row">
@@ -93,9 +93,15 @@
         </div>
       </div>
 
+      <div class="form-group">
+        <label for="image" class="form-label">Poster</label>
+        <input class="form-control" type="file" id="image" (change)="onFileSelected($event)">
+      </div>
+
+
     </div>
     <div>
-      <button type="button" class="btn btn-outline-primary btn-block mt-3" [disabled]="!newMovieForm.valid">Cadastrar</button>
+      <button type="button" class="btn btn-outline-primary btn-block mt-3" [disabled]="!movieForm.valid">Cadastrar</button>
     </div>
 
   </fieldset>
