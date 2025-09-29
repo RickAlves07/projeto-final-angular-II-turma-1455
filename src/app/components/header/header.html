@@ -31,10 +31,17 @@
         </li>
 
         <li>
-          <a class="nav-link" [routerLink]="['/login']">
-            <span>{{ logedTexts.text }}</span>
-            <i class="bi {{ logedTexts.icon }}"></i>
-          </a>
+          @if (isLoggedIn) {
+            <a class="nav-link" [routerLink]="['/home']" (click)="logoutCurrentUser()">
+              <span>{{ logedTexts.text }}</span>
+              <i class="bi {{ logedTexts.icon }}"></i>
+            </a>
+          } @else {
+            <a class="nav-link" [routerLink]="['/login']">
+              <span>{{ logedTexts.text }}</span>
+              <i class="bi {{ logedTexts.icon }}"></i>
+            </a>
+          }
         </li>
       </ul>
     </div>
