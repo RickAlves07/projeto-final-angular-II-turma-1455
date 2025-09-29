@@ -10,12 +10,13 @@
           </a>
         </li>
 
-        <li>
-          <a class="nav-link" [routerLink]="['/movies/new']">
-            <span>Cadastrar Novo</span>
-          </a>
-        </li>
-
+        @if (isLoggedIn) {
+          <li>
+            <a class="nav-link" [routerLink]="['/movies/new']">
+              <span>Cadastrar Novo</span>
+            </a>
+          </li>
+        }
         <li>
           <app-cart-status
             (cartOpened)="onCartOpened($event)"
