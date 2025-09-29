@@ -5,15 +5,16 @@ import { Checkout } from './pages/checkout/checkout';
 import { Login } from './pages/login/login';
 import { Register } from './pages/register/register';
 import { NewMovie } from './pages/new-movie/new-movie';
+import { authGuard } from './guards/auth-guard-guard';
 
 export const routes: Routes = [
   { path: '', component: Home },
   { path: 'home', redirectTo: '' },
   { path: 'login', component: Login },
   { path: 'register', component: Register },
-  { path: 'movies/new', component: NewMovie },
-  { path: 'movies/edit/:id',component: NewMovie },
+  { path: 'movies/new', component: NewMovie, canActivate: [authGuard] },
+  { path: 'movies/edit/:id',component: NewMovie, canActivate: [authGuard] },
   { path: 'product-detail/:id', component: ProductDetails },
-  { path: 'checkout', component: Checkout },
+  { path: 'checkout', component: Checkout, canActivate: [authGuard] },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
