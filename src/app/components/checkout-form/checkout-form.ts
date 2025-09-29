@@ -25,7 +25,7 @@ export class CheckoutForm {
 
   regexMes = /^(0?[1-9]|1[0-2])$/;
   regexAno = /^(\d{4})$/;
-
+  
   checkoutForm: FormGroup = this.fb.group({
     nomeCompleto: ['', [Validators.required, Validators.minLength(3)]],
     email: ['', [Validators.required, Validators.email]],
