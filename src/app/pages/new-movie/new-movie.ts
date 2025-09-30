@@ -78,37 +78,45 @@ export class NewMovie {
       this.submittedData.set(this.movieForm.value);
     }
 
-    if(this.isEditMode){
+    if (this.isEditMode) {
       this.update();
-    }   else{
+    } else {
       this.create();
     }
   }
 
   update(){
+    let imageUrlUpdate = this.movie()?.imageLink ?? '';
+    const id = this.movie()?.id ?? '';
+
     if (this.selectedFile) {
       this.moviesService.uploadImage(this.selectedFile).pipe(
-          switchMap(({ imageUrl }) => {
-          const id = this.movie()?.id ?? '';
-          const payload: Movie = {
-            ...this.movieForm.value,
-            id: id,
-            imageLink: imageUrl,
-          };
-          return this.moviesService.update(id, payload);
+        switchMap(({ imageUrl }) => {
+          imageUrlUpdate = imageUrl;
+          return imageUrlUpdate;
         })
-      )
-      .subscribe({
-        next: () => {
-          this.formClear();
-          const a = 'Filme Atualizado com sucesso!';
-        },
-        error: (error) => {
-          console.error(error);
-          const a = 'Não foi possível atualizar o filme.';
-        }
+      ).subscribe((imageUrl) => {
+        imageUrlUpdate = imageUrl;
       });
     }
+
+    const payload: Movie = {
+      ...this.movieForm.value,
+      id: id,
+      imageLink: imageUrlUpdate,
+    };
+
+    this.moviesService.update(id, payload)
+    .subscribe({
+      next: () => {
+        this.formClear();
+        const a = 'Filme Atualizado com sucesso!';
+      },
+      error: (error) => {
+        console.error(error);
+        const a = 'Não foi possível atualizar o filme.';
+      }
+    });
   }
 
   create(){
