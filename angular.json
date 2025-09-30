@@ -66,10 +66,10 @@
           "builder": "@angular/build:dev-server",
           "configurations": {
             "production": {
-              "buildTarget": "projeto-final-angular-I-turma-1455:build:production"
+              "buildTarget": "projeto-final-angular-II-turma-1455:build:production"
             },
             "development": {
-              "buildTarget": "projeto-final-angular-I-turma-1455:build:development"
+              "buildTarget": "projeto-final-angular-II-turma-1455:build:development"
             }
           },
           "defaultConfiguration": "development"

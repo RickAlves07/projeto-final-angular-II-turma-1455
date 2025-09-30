@@ -1,5 +1,5 @@
 {
-  "name": "projeto-final-angular-i-turma-1455",
+  "name": "projeto-final-angular-II-turma-1455",
   "version": "1.0.0",
   "author": "Rick Alves",
   "scripts": {
@@ -30,6 +30,7 @@
     "@angular/router": "^20.1.0",
     "@ngrx/store": "^20.0.1",
     "@ngx-translate/core": "^17.0.0",
+    "@ngx-translate/http-loader": "^17.0.0",
     "bootstrap": "^5.3.8",
     "bootstrap-icons": "^1.13.1",
     "jwt-decode": "^4.0.0",
