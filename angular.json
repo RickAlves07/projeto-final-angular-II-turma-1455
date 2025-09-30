@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "projeto-final-angular-I-turma-1455": {
+    "projeto-final-angular-II-turma-1455": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {

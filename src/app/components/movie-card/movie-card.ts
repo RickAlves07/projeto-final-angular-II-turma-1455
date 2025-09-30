@@ -23,6 +23,6 @@ export class MovieCard {
   }
 
   addToCart() {
-    this.store.dispatch(CartActions.addProductToCart({ product: this.movie }));
+    this.store.dispatch(CartActions.addToCart({ movie: this.movie }));
   }
 }

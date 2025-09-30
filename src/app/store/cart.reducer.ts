@@ -1,27 +1,27 @@
 import { createReducer, on } from '@ngrx/store';
 import {
-  addProductToCart,
-  removeAllProductsFromCart,
-  removeAllQuantityProductFromCart,
-  removeProductFromCart,
+  addToCart,
+  removeAllFromCart,
+  removeAllQuantityFromCart,
+  removeFromCart,
 } from './cart.actions';
 import { initialCartState } from './cart.state';
 
 export const cartReducer = createReducer(
   initialCartState,
-  on(addProductToCart, (state, { product }) => {
-    console.log('Product added to cart:', 'productId:', product.id);
+  on(addToCart, (state, { movie }) => {
+    console.log('Movie added to cart:', 'movieId:', movie.id);
     const existingItem = state.items.find((item) =>
-      item.id === product.id
+      item.id === movie.id
     );
     let newItems;
     if (existingItem) {
       newItems = state.items.map((item) =>
-        item.id === product.id ? { ...item, quantity: (item.quantity || 1) + (1) } : item
+        item.id === movie.id ? { ...item, quantity: (item.quantity || 1) + (1) } : item
       );
     } else {
       newItems = [
-        ...state.items, { ...product, quantity: product.quantity || 1 },
+        ...state.items, { ...movie, quantity: movie.quantity || 1 },
       ];
     }
     return {
@@ -32,10 +32,10 @@ export const cartReducer = createReducer(
     };
   }),
 
-  on(removeProductFromCart, (state, { productId }) => {
-    console.log('Product subtracted from cart:', 'productId:', productId);
+  on(removeFromCart, (state, { movieId }) => {
+    console.log('Movie subtracted from cart:', 'movieId:', movieId);
     const updatedItems = state.items.map((item) =>
-        item.id === productId ? { ...item, quantity: item.quantity - 1 } : item
+        item.id === movieId ? { ...item, quantity: item.quantity - 1 } : item
     ).filter((item) => item.quantity > 0);
     return {
       ...state,
@@ -45,9 +45,9 @@ export const cartReducer = createReducer(
     };
   }),
 
-  on(removeAllQuantityProductFromCart, (state, { productId }) => {
-    console.log('Product removed from cart:', 'productId:', productId);
-    const updatedItems = state.items.filter((item) => item.id !== productId);
+  on(removeAllQuantityFromCart, (state, { movieId }) => {
+    console.log('Movie removed from cart:', 'movieId:', movieId);
+    const updatedItems = state.items.filter((item) => item.id !== movieId);
     return {
       ...state,
       items: updatedItems,
@@ -56,8 +56,8 @@ export const cartReducer = createReducer(
     };
   }),
 
-  on(removeAllProductsFromCart, (state) => {
-    console.log('All products removed from cart');
+  on(removeAllFromCart, (state) => {
+    console.log('All movies removed from cart');
     return {
       ...state,
       items: [],

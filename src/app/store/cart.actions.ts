@@ -1,20 +1,20 @@
 import { createAction, props } from '@ngrx/store';
 
-export const addProductToCart = createAction(
-  '[Product Detail] Add Product to Cart',
-  props<{ product: any }>()
+export const addToCart = createAction(
+  '[Cart] Add to Cart',
+  props<{ movie: any }>()
 );
 
-export const removeProductFromCart = createAction(
-  '[Cart] Remove Product',
-  props<{ productId: number }>()
+export const removeFromCart = createAction(
+  '[Cart] Remove from Cart',
+  props<{ movieId: number }>()
 );
 
-export const removeAllQuantityProductFromCart = createAction(
-  '[Cart] Remove All Quantity Product',
-  props<{ productId: number }>()
+export const removeAllQuantityFromCart = createAction(
+  '[Cart] Remove All Quantity Item',
+  props<{ movieId: number }>()
 );
 
-export const removeAllProductsFromCart = createAction(
-  '[Cart] Remove All Products'
+export const removeAllFromCart = createAction(
+  '[Cart] Remove All'
 );

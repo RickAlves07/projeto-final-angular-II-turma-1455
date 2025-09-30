@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { Observable } from 'rxjs';
 import * as CartActions from '../../store/cart.actions';
 import { CurrencyBRLPipe } from "../../pipes/currency-brl.pipe";
-import { IProduct } from '../../models/interfaces/iproduct';
+import { Movie } from '../../models/interfaces/imovie';
 
 @Component({
   selector: 'app-shopping-cart',
@@ -29,20 +29,20 @@ export class ShoppingCart {
     this.total$ = this.store.select((state) => state.cart.total);
   }
 
-  addToCart(product: IProduct){
-    this.store.dispatch(CartActions.addProductToCart({ product: product }));
+  addToCart(movie: Movie){
+    this.store.dispatch(CartActions.addToCart({ movie: movie }));
   }
 
-  subtractItem(productId: number) {
-    this.store.dispatch(CartActions.removeProductFromCart({ productId }));
+  subtractItem(movieId: number) {
+    this.store.dispatch(CartActions.removeFromCart({ movieId }));
   }
 
-  removeItem(productId: number) {
-    this.store.dispatch(CartActions.removeAllQuantityProductFromCart({ productId }));
+  removeItem(movieId: number) {
+    this.store.dispatch(CartActions.removeAllQuantityFromCart({ movieId }));
   }
 
   removeAll() {
-    this.store.dispatch(CartActions.removeAllProductsFromCart());
+    this.store.dispatch(CartActions.removeAllFromCart());
   }
 
   closeCart() {
