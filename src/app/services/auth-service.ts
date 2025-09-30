@@ -70,7 +70,6 @@ export class AuthService {
 
     const now = Math.floor(Date.now() / 1000);
     const timeUntilExp = Math.max((payload.exp - now), 0);
-    console.log(timeUntilExp);
 
     this.expTimer = setTimeout(() => this.logout(), timeUntilExp * 1000);
   }
