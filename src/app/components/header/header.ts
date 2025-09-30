@@ -23,7 +23,7 @@ export class Header {
   }
 
   constructor(private authService: AuthService, private translateService: TranslateService) {
-    // this.currentLanguage = this.translateService.getCurrentLang() ?? 'pt-br';
+    this.currentLanguage = this.translateService.getCurrentLang() ?? 'pt-br';
   }
 
   get isLoggedIn(): boolean {

@@ -47,7 +47,7 @@
     <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
       @if (movies().length !== 0) {
         @for (movie of movies(); track movie.id) {
-          <app-movie-card [movie]="movie"></app-movie-card>
+          <app-movie-card [movie]="movie" (deleted)="getMovies()"></app-movie-card>
         }
       } @else {
         <div class="col">
