@@ -1,4 +1,3 @@
-import { ProductDetails } from './pages/product-details/product-details';
 import { Routes } from '@angular/router';
 import { Home } from './pages/home/home';
 import { Checkout } from './pages/checkout/checkout';
@@ -12,9 +11,8 @@ export const routes: Routes = [
   { path: 'home', redirectTo: '' },
   { path: 'login', component: Login },
   { path: 'register', component: Register },
-  { path: 'movies/new', component: NewMovie, canActivate: [authGuard] },
-  { path: 'movies/edit/:id',component: NewMovie, canActivate: [authGuard] },
-  { path: 'product-detail/:id', component: ProductDetails },
+  { path: 'movie/new', component: NewMovie, canActivate: [authGuard] },
+  { path: 'movie/edit/:id',component: NewMovie, canActivate: [authGuard] },
   { path: 'checkout', component: Checkout, canActivate: [authGuard] },
   { path: '**', redirectTo: '', pathMatch: 'full' }
 ];
