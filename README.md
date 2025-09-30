@@ -56,6 +56,8 @@ Navegar ate a pasta `/movies-api` na pasta do projeto:
 
 3. A Api Backend é executada no endereço  `http://localhost:3000`.
 
+---
+
 ## 🙍‍♂️ Credenciais
 É possivel cadastrar novos usuarios de acesso no banco em `http://localhost:4200/register`
 
@@ -63,10 +65,12 @@ Para realizar o login, já existe um usuario pre-cadastrado no banco de dados.
 - Email: `admin@email.com`
 - Senha: `123` 
 
+---
 
 ## ⚙️ Configurações
 As configurações do projeto e da api estão nos arquivos `app/environments` e `movies-api/config.js`
 
+---
 
 ## 🗺️ Rotas Principais
 
@@ -77,6 +81,8 @@ As configurações do projeto e da api estão nos arquivos `app/environments` e 
 - `/movie/new`       → Cadastro de novo filme (protegida por AuthGuard)
 - `/movie/edit/:id`  → Edição de filme (protegida por AuthGuard)
 - `/checkout`        → Página de checkout (protegida por AuthGuard)
+
+---
 
 ## 📁 Estrutura de Pastas
 
@@ -109,13 +115,14 @@ src/
     index.html             # HTML principal
     styles.scss            # Estilos globais
 ```
+---
 
 ## 📚 Observações
 
 - Para mais informações sobre comandos Angular CLI, consulte a [documentação oficial](https://angular.dev/tools/cli).
 
 ---
-Complementos:
+## Complementos:
 
 Movies Api:
 https://github.com/Kirink212/api-examples/tree/main
