@@ -18,7 +18,7 @@ Possuir os seguintes itens instalados na maquina:
  
 ### Iniciando a Aplicação Automaticamente:
 
-Para iniciar tanto o projeto frontend quando a api backend, basta executar o arquivo `init-setup-all.bat`.  
+Para iniciar tanto o projeto frontend quanto a api backend, basta executar o arquivo `init-setup-all.bat`.  
 
 Acesse a aplicação em qualquer navegador via Url  `http://localhost:4200`.
  
@@ -39,7 +39,7 @@ Na pasta do projeto:
 
 1. Instale as dependências com `npm install` via cmd.
 
-2. Inicie o a aplicação com `npm start` via cmd.
+2. Inicie o a aplicação com `ng serve` via cmd.
 
 3. Acesse a aplicação frontend em qualquer navegador via Url  `http://localhost:4200`.
 
@@ -55,9 +55,9 @@ Navegar ate a pasta `/movies-api` na pasta do projeto:
 ---
 
 ## 🙍‍♂️ Credenciais
-É possivel cadastrar novos usuarios de acesso no banco em `http://localhost:4200/register`
+É possivel cadastrar novos usuarios na pagina `http://localhost:4200/register`
 
-Para realizar o login, já existe um usuario pre-cadastrado no banco de dados.
+Para realizar o login com um usuario já existente no banco de dados.
 - Email: `admin@email.com`
 - Senha: `123` 
 
