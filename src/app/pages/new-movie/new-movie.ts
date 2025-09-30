@@ -1,37 +1,51 @@
-import { Component, effect, Input, Signal, signal } from '@angular/core';
-import { AuthService } from '../../services/auth-service';
-import { Router } from '@angular/router';
+import { Component, effect, inject, Input, Signal, signal } from '@angular/core';
+import { ActivatedRoute, Router, RouterModule } from '@angular/router';
 import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validators } from '@angular/forms';
 import { CommonModule } from '@angular/common';
-import { Movie } from '../../models/imovie';
+import { Movie } from '../../models/interfaces/imovie';
 import { MoviesService } from '../../services/movies-service';
-import { switchMap } from 'rxjs';
+import { map, switchMap } from 'rxjs';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
   selector: 'app-new-movie',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule],
   templateUrl: './new-movie.html',
   styleUrl: './new-movie.scss'
 })
 
 export class NewMovie {
-  @Input() movie: Signal<Movie | null> = signal(null);
+  private route = inject(ActivatedRoute);
+  private moviesService = inject(MoviesService);
 
   movieForm: FormGroup = new FormGroup({});
   submittedData = signal<any | null>(null);
   selectedFile: File | null = null;
   imagePreview: string | null = null;
 
+  isEditMode = false;
+  movie = toSignal(
+    this.route.params.pipe(
+      map((params) => params['id']),
+      switchMap((id) => this.moviesService.getById(id))
+    )
+  );
 
-  constructor(private authService: AuthService, private moviesService: MoviesService, private router: Router) {
-    this.initmovieForm();
+  constructor() {
+    this.route.params.pipe(map((params) => params['id'])).subscribe((id) => {
+      if (id) {
+        this.isEditMode = true;
+      }
+    });
+
+    this.initMovieForm();
   }
 
-  initmovieForm() {
+  initMovieForm() {
     this.movieForm = new FormGroup({
       title: new FormControl('', [Validators.required, Validators.maxLength(30)]),
       genre: new FormControl('', [Validators.required]),
-      plataform: new FormControl('', [Validators.required]),
+      platform: new FormControl('', [Validators.required]),
       price: new FormControl<number | null>(null, [Validators.required, Validators.min(0.01)]),
       description: new FormControl('', [Validators.required, Validators.maxLength(200)]),
       availableInStock: new FormControl<number | null>(null, [Validators.required, Validators.min(1)])
@@ -64,32 +78,31 @@ export class NewMovie {
       this.submittedData.set(this.movieForm.value);
     }
 
-    this.moviesService
-    .uploadImage(this.selectedFile)
-    .pipe(
-      switchMap(({ imageUrl }) => {
-        const payload: Omit<Movie, 'id'> = {
-          ...this.movieForm,
-          imageLink: imageUrl
-        };
+    if (this.selectedFile) {
+      this.moviesService.uploadImage(this.selectedFile).pipe(
+        switchMap(({ imageUrl }) => {
+          const payload: Omit<Movie, 'id'> = {
+            ...this.movieForm.value,
+            imageLink: imageUrl
+          };
 
-        return this.moviesService.create(payload);
-      })
-    )
-    .subscribe({
-      next: () => {
-        this.movieForm?.resetAfterCreate();
-        const a = 'Filme adicionado com sucesso!';
-      },
-      error: (error) => {
-        console.error(error);
-       const a = 'Não foi possível adicionar o filme.';
-      }
-    });
-
-
-
-
+          return this.moviesService.create(payload);
+        })
+      )
+      .subscribe({
+        next: () => {
+          this.formClear();
+          const a = 'Filme adicionado com sucesso!';
+        },
+        error: (error) => {
+          console.error(error);
+          const a = 'Não foi possível adicionar o filme.';
+        }
+      });
+    } else {
+      // Handle case when no file is selected, e.g. show an error or proceed without image
+      console.info('Nenhum arquivo selecionado para upload.');
+    }
   }
 
   control(name: string): AbstractControl {
@@ -107,5 +120,11 @@ export class NewMovie {
     if (file) {
       reader.readAsDataURL(file);
     }
+  }
+
+  formClear() {
+    this.movieForm.reset();
+    this.selectedFile = null;
+    this.imagePreview = null;
   }
 }

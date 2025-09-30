@@ -1,6 +1,6 @@
 <form [formGroup]="movieForm" (ngSubmit)="onSubmit()" novalidate>
   <fieldset class="border p-3">
-    <legend class="w-auto">Cadastrar novo filme</legend>
+    <legend class="w-auto">{{ isEditMode ? 'Editar' : 'Cadastrar novo' }} filme</legend>
     <div class="form-row">
 
       <div class="form-group">
@@ -14,7 +14,7 @@
         />
         <div class="invalid-feedback">
           @if(control('title').touched && control('title').hasError('required')) { <div>Titulo é obrigatório.</div> }
-          @if(control('description').touched && control('description').hasError('maxlength')) { <div>Tamanho maximo atigingido (30 caracteres).</div> }
+          @if(control('title').touched && control('title').hasError('maxlength')) { <div>Tamanho maximo atigingido (30 caracteres).</div> }
         </div>
       </div>
 
@@ -33,16 +33,16 @@
       </div>
 
       <div class="form-group">
-        <label for="plataform">Plataforma</label>
+        <label for="platform">platforma</label>
         <input
           type="text"
-          id="plataform"
+          id="platform"
           class="form-control"
-          [ngClass]="{'is-invalid': control('plataform').touched && control('plataform').invalid}"
-          formControlName="plataform"
+          [ngClass]="{'is-invalid': control('platform').touched && control('platform').invalid}"
+          formControlName="platform"
         />
         <div class="invalid-feedback">
-          @if(control('plataform').touched && control('plataform').hasError('required')) { <div>Plataforma é obrigatório.</div> }
+          @if(control('platform').touched && control('platform').hasError('required')) { <div>platforma é obrigatório.</div> }
         </div>
       </div>
 
@@ -64,13 +64,13 @@
 
       <div class="form-group">
         <label for="description">Descrição</label>
-        <input
+        <textarea
           type="text"
           id="description"
           class="form-control"
           [ngClass]="{'is-invalid': control('description').touched && control('description').invalid}"
           formControlName="description"
-        />
+        ></textarea>
         <div class="invalid-feedback">
           @if(control('description').touched && control('description').hasError('required')) { <div>Descrição é obrigatório.</div> }
           @if(control('description').touched && control('description').hasError('maxlength')) { <div>Tamanho maximo atigingido (200 caracteres).</div> }
@@ -96,12 +96,23 @@
       <div class="form-group">
         <label for="image" class="form-label">Poster</label>
         <input class="form-control" type="file" id="image" (change)="onFileSelected($event)">
+
+        @if (imagePreview) {
+          <div class="preview">
+            <img [src]="imagePreview" alt="Preview" style="max-width: 240px; margin-top: 8px;" />
+          </div>
+        }
       </div>
-
-
     </div>
     <div>
-      <button type="button" class="btn btn-outline-primary btn-block mt-3" [disabled]="!movieForm.valid">Cadastrar</button>
+      @if (!isEditMode) {
+        <button type="button" class="btn btn-outline-primary btn-block mt-3" [disabled]="!movieForm.valid || !selectedFile">Cadastrar</button>
+        <button type="button" class="btn btn-outline-secondary btn-block mt-3" (click)="formClear()">Limpar Todos os Campos</button>
+      } @else {
+        <button type="button" class="btn btn-primary btn-block mt-3" [disabled]="!movieForm.valid">Salvar Alterações</button>
+      }
+
+      <button type="button" class="btn btn-secondary btn-block mt-3" [routerLink]="['/home']">Cancelar</button>
     </div>
 
   </fieldset>

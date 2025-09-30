@@ -1,1 +1,60 @@
-<p>movies-list works!</p>
+@if (allMoviesList().length !== 0) {
+<div>
+  <h1>Lista de Filmes</h1>
+  <div>
+    <section>
+      <fieldset class="border p-3 mt-4">
+        <legend class="w-auto">Filtros</legend>
+        <div class="form-group form-row input-group">
+          <div class="col-6">
+            <label for="movieNameFilter">Nome do Filme</label>
+            <input
+              type="text"
+              class="form-control"
+              id="movieNameFilter"
+              placeholder="Digite o nome de um filme"
+              [(ngModel)]="movieFilterName"
+              (ngModelChange)="filterMoviesByName(movieFilterName)"
+            />
+          </div>
+          <div class="col-4">
+              <label for="movieGenreFilter">
+                Gênero
+              </label>
+                <select [(ngModel)]="selectedGenreFilter" class="form-control" id="movieGenreFilter"
+                (ngModelChange)="filterMoviesByGenre(selectedGenreFilter)">
+                  <option selected disabled value="">Escolha...</option>
+                  @for (item of genresList(); track $index) {
+                    <option [value]="item">{{ item }}</option>
+                  }
+                </select>
+          </div>
+          <div class="col-2 d-flex align-items-end">
+            <button
+            type="button"
+            class="btn w-100"
+            [ngClass]="isFiltered ? 'btn btn-secondary' : 'btn btn-outline-secondary'"
+            (click)="resetFilters()">
+              Limpar Filtros
+            </button>
+          </div>
+        </div>
+      </fieldset>
+    </section>
+  </div>
+
+  <div class="card-deck">
+    <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 row-cols-lg-4">
+      @if (movies().length !== 0) {
+        @for (movie of movies(); track movie.id) {
+          <app-movie-card [movie]="movie"></app-movie-card>
+        }
+      } @else {
+        <div class="col">
+          <p>Nenhum filme encontrado.</p>
+        </div>
+      }
+    </div>
+  </div>
+</div>
+}

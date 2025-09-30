@@ -5,6 +5,7 @@ import { CurrencyBRLPipe } from '../../pipes/currency-brl.pipe';
 import { CommonModule } from '@angular/common';
 import * as CartActions from '../../store/cart.actions';
 import { Store } from '@ngrx/store';
+import { AuthService } from '../../services/auth-service';
 
 @Component({
   selector: 'app-product-card',
@@ -15,6 +16,11 @@ import { Store } from '@ngrx/store';
 export class ProductCard {
   @Input() product!: IProduct;
   private store = inject(Store);
+  constructor(private authService: AuthService) {}
+
+  get isLoggedIn(): boolean {
+    return this.authService.isAuthenticated();
+  }
 
   addToCart() {
     this.store.dispatch(CartActions.addProductToCart({ product: this.product }));

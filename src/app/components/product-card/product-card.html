@@ -27,17 +27,19 @@
             <span>Adicionar ao Carrinho </span>
             <i class="bi bi-plus-lg"></i>
           </button>
-          <button
-            [routerLink]="['/product-detail', product.id]"
-            class="btn btn-primary mt-auto"
-          >
-            <span>Editar </span>
-            <i class="bi bi-pencil"></i>
-          </button>
-          <button class="btn btn-outline-danger">
-            <span>Deletar </span>
-            <i class="bi bi-x-lg"></i>
-          </button>
+          @if (isLoggedIn) {
+            <button
+              [routerLink]="['/product-detail', product.id]"
+              class="btn btn-primary mt-auto"
+            >
+              <span>Editar </span>
+              <i class="bi bi-pencil"></i>
+            </button>
+            <button class="btn btn-outline-danger">
+              <span>Deletar </span>
+              <i class="bi bi-x-lg"></i>
+            </button>
+          }
         </div>
       </div>
     </div>
