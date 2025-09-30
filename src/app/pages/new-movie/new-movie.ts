@@ -4,7 +4,7 @@ import { AbstractControl, FormControl, FormGroup, ReactiveFormsModule, Validator
 import { CommonModule } from '@angular/common';
 import { Movie } from '../../models/interfaces/imovie';
 import { MoviesService } from '../../services/movies-service';
-import { map, switchMap } from 'rxjs';
+import { map, Observable, switchMap } from 'rxjs';
 import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
@@ -78,6 +78,40 @@ export class NewMovie {
       this.submittedData.set(this.movieForm.value);
     }
 
+    if(this.isEditMode){
+      this.update();
+    }   else{
+      this.create();
+    }
+  }
+
+  update(){
+    if (this.selectedFile) {
+      this.moviesService.uploadImage(this.selectedFile).pipe(
+          switchMap(({ imageUrl }) => {
+          const id = this.movie()?.id ?? '';
+          const payload: Movie = {
+            ...this.movieForm.value,
+            id: id,
+            imageLink: imageUrl,
+          };
+          return this.moviesService.update(id, payload);
+        })
+      )
+      .subscribe({
+        next: () => {
+          this.formClear();
+          const a = 'Filme Atualizado com sucesso!';
+        },
+        error: (error) => {
+          console.error(error);
+          const a = 'Não foi possível atualizar o filme.';
+        }
+      });
+    }
+  }
+
+  create(){
     if (this.selectedFile) {
       this.moviesService.uploadImage(this.selectedFile).pipe(
         switchMap(({ imageUrl }) => {
@@ -100,8 +134,7 @@ export class NewMovie {
         }
       });
     } else {
-      // Handle case when no file is selected, e.g. show an error or proceed without image
-      console.info('Nenhum arquivo selecionado para upload.');
+      console.info('Nenhum arquivo selecionado para upload. Selecione uma imagem para o filme para cadastrar.');
     }
   }
 

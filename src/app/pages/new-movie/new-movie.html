@@ -98,6 +98,7 @@
         <input class="form-control" type="file" id="image" (change)="onFileSelected($event)">
 
         @if (imagePreview) {
+          <span>Pré-visualização:</span>
           <div class="preview">
             <img [src]="imagePreview" alt="Preview" style="max-width: 240px; margin-top: 8px;" />
           </div>
