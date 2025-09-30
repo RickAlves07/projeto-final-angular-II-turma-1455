@@ -4,7 +4,7 @@
       <p>Seu carrinho está vazio.</p>
       @if (isCheckout) {
         <button class="btn btn-primary" [routerLink]="['/home']">
-          Ir para a Lista de Produtos
+          Ir para a Lista de Filmes
         </button>
       }
     } @else {
@@ -18,7 +18,7 @@
           <th scope="col" class="col-1">
              <button
                 class="btn btn-outline-danger"
-                title="Remover Todos os produtos"
+                title="Remover Todos os filmes"
                 (click)="removeAll()"
               >
                 Remover Tudo
