@@ -1,19 +1,19 @@
 <div class="container">
   <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-    <a class="navbar-brand" [routerLink]="['/home']">ADA - Loja de Filmes</a>
+    <a class="navbar-brand" [routerLink]="['/home']">{{ 'header.title' | translate }}</a>
 
     <div class="collapse navbar-collapse" id="navbarNav">
       <ul class="navbar-nav mr-auto">
         <li>
           <a class="nav-link" [routerLink]="['/home']">
-            <span>Listagem</span>
+            <span>{{ 'header.list' | translate }}</span>
           </a>
         </li>
 
         @if (isLoggedIn) {
         <li>
           <a class="nav-link" [routerLink]="['/movie/new']">
-            <span>Cadastrar Novo</span>
+            <span>{{ 'header.addNew' | translate }}</span>
           </a>
         </li>
         }
@@ -32,7 +32,7 @@
               [ngClass]="{ 'active': currentLanguage === 'pt-br' }"
               (click)="changeLanguage('pt-br')"
             >
-              Português
+              {{ 'header.language.portuguese' | translate }}
             </button>
             <button
               type="button"
@@ -40,7 +40,7 @@
               [ngClass]="{ 'active': currentLanguage === 'en' }"
               (click)="changeLanguage('en')"
             >
-              Inglês
+              {{ 'header.language.english' | translate }}
             </button>
           </div>
         </li>
@@ -52,12 +52,12 @@
             [routerLink]="['/home']"
             (click)="logoutCurrentUser()"
           >
-            <span>{{ logedTexts.text }}</span>
+            <span>{{ 'header.logout' | translate }}</span>
             <i class="bi {{ logedTexts.icon }}"></i>
           </a>
           } @else {
           <a class="nav-link" [routerLink]="['/login']">
-            <span>{{ logedTexts.text }}</span>
+            <span>{{ 'header.login' | translate }}</span>
             <i class="bi {{ logedTexts.icon }}"></i>
           </a>
           }

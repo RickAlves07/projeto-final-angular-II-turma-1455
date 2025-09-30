@@ -1,0 +1,115 @@
+{
+  "header": {
+    "title": "Ada - Loja de Filmes",
+    "list": "Listagem",
+    "addNew": "Cadastrar Novo",
+    "cart": "Carrinho",
+    "language": { "portuguese": "Português", "english": "Inglês" },
+    "login": "Entrar",
+    "logout": "Sair"
+  },
+  "movieList": {
+    "PageTitle": "Lista de Filmes",
+    "filters": {
+      "filter": "Filtros",
+      "name": "Nome do Filme",
+      "namePlaceholder": "Digite o nome do filme",
+      "genre": "Gênero",
+      "genrePlaceholder": "Escolha...",
+      "reset": "Limpar Filtros"
+    },
+    "noResults": "Nenhum filme encontrado."
+  },
+  "movieCard": {
+    "add": "Adicionar ao Carrinho",
+    "edit": "Editar",
+    "delete": "Deletar"
+  },
+  "newMovie": {
+    "PageTitleEdit": "Editar Filme",
+    "PageTitleAdd": "Cadastrar Novo Filme",
+    "form": {
+      "title": "Título",
+      "titleRequired": "Título é obrigatório.",
+      "titleMaxlength": "Título deve ter no máximo 70 caracteres.",
+      "genre": "Gênero",
+      "genreRequired": "Gênero é obrigatório.",
+      "platform": "Plataforma",
+      "platformRequired": "Plataforma é obrigatória.",
+      "price": "Preço",
+      "priceRequired": "Preço é obrigatório.",
+      "priceMin": "Preço deve ser maior que 0.",
+      "description": "Descrição",
+      "descriptionRequired": "Descrição é obrigatória.",
+      "descriptionMaxlength": "Descrição deve ter no máximo 300 caracteres.",
+      "stock": "Estoque",
+      "stockRequired": "Estoque é obrigatório.",
+      "stockMin": "Estoque deve ser maior que 0.",
+      "image": "Cartaz",
+      "imagePreview": "Pré-visualização",
+      "submit": "Cadastrar",
+      "editSubmit": "Salvar Alterações",
+      "cleanFields": "Limpar Todos os Campos",
+      "cancel": "Cancelar"
+    }
+  },
+  "ShoppingCart": {
+    "emptyCart": {
+      "message": "Seu carrinho está vazio.",
+      "goToList": "Ir para a Lista de Filmes"
+    },
+    "tableHeader": {
+      "movieName": "Nome do filme",
+      "price": "Preço",
+      "quantity": "Quantidade",
+      "removeAll": "Remover Tudo"
+    },
+    "tableBody": {
+      "subtract": "Diminuir",
+      "add": "Aumentar",
+      "remove": "Remover Item"
+    },
+    "totalItems": "Total de Itens",
+    "totalPrice": "Valor Total",
+    "closeCart": "Fechar Carrinho",
+    "checkout": "Ir para o Checkout"
+  },
+  "checkout": {
+    "contactData": "Dados de Contato",
+    "fullName": "Nome Completo",
+    "fullNameRequired": "Nome completo é obrigatório.",
+    "fullNameMinlength": "Nome completo deve ter no mínimo 3 caracteres.",
+    "email": "E-mail",
+    "emailRequired": "E-mail é obrigatório.",
+    "emailPattern": "Formato inválido.",
+    "address": "Endereço",
+    "addressRequired": "Endereço é obrigatório.",
+    "addressMinlength": "Endereço deve ter no mínimo 5 caracteres.",
+    "paymentField": "Pagamento",
+    "paymentName": "Nome no Cartão",
+    "paymentNameRequired": "Nome no cartão é obrigatório.",
+    "paymentNameMinlength": "Nome no cartão deve ter no mínimo 3 caracteres.",
+    "paymentNumber": "Número do Cartão",
+    "paymentNumberRequired": "Número do cartão é obrigatório.",
+    "paymentNumberPattern": "Deve ter 16 dígitos.",
+    "paymentNumberOnly": "Apenas números são permitidos.",
+    "cvc": "CVC",
+    "cvcRequired": "CVC é obrigatório.",
+    "cvcPattern": "Deve ter 3 dígitos.",
+    "cvcOnly": "Apenas números são permitidos.",
+    "expirationMonth": "Mês",
+    "expirationMonthRequired": "Obrigatório.",
+    "expirationMonthPattern": "Mês inválido (1–12)",
+    "expirationYear": "Ano",
+    "expirationYearRequired": "Obrigatório.",
+    "expirationYearPattern": "Ano inválido.",
+    "submit": "Finalizar Compra",
+    "successMessage": "Compra realizada com sucesso!"
+  },
+  "deleteModal": {
+    "title": "Deletar",
+    "message": "Deseja mesmo deletar esse filme?",
+    "cancel": "Cancelar",
+    "confirm": "Confirmar"
+  }
+}

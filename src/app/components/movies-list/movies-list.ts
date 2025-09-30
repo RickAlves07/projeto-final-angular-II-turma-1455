@@ -4,10 +4,11 @@ import { Movie } from '../../models/interfaces/imovie';
 import { MovieCard } from '../movie-card/movie-card';
 import { FormsModule, ɵInternalFormsSharedModule } from '@angular/forms';
 import { CommonModule } from '@angular/common';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-movies-list',
-  imports: [MovieCard, ɵInternalFormsSharedModule, FormsModule, CommonModule],
+  imports: [MovieCard, ɵInternalFormsSharedModule, FormsModule, CommonModule, TranslateModule],
   templateUrl: './movies-list.html',
   styleUrl: './movies-list.scss'
 })

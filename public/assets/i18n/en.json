@@ -1,0 +1,115 @@
+{
+  "header": {
+    "title": "Ada - Movies Store",
+    "list": "List All",
+    "addNew": "Add New",
+    "cart": "Cart",
+    "language": { "portuguese": "Portuguese", "english": "English" },
+    "login": "Login",
+    "logout": "Logout"
+  },
+  "movieList": {
+    "PageTitle": "Movies List",
+    "filters": {
+      "filter": "Filters",
+      "name": "Movie Name",
+      "namePlaceholder": "Type the movie name",
+      "genre": "Genre",
+      "genrePlaceholder": "Choose...",
+      "reset": "Clear Filters"
+    },
+    "noResults": "No movies found."
+  },
+  "movieCard": {
+    "add": "Add to Cart",
+    "edit": "Edit",
+    "delete": "Delete"
+  },
+  "newMovie": {
+    "PageTitleEdit": "Edit Movie",
+    "PageTitleAdd": "Add New Movie",
+    "form": {
+      "title": "Title",
+      "titleRequired": "Title is required.",
+      "titleMaxlength": "Title must be at most 70 characters long.",
+      "genre": "Genre",
+      "genreRequired": "Genre is required.",
+      "platform": "Platform",
+      "platformRequired": "Platform is required.",
+      "price": "Price",
+      "priceRequired": "Price is required.",
+      "priceMin": "Price must be greater than 0.",
+      "description": "Description",
+      "descriptionRequired": "Description is required.",
+      "descriptionMaxlength": "Description must be at most 300 characters long.",
+      "stock": "Stock",
+      "stockRequired": "Stock is required.",
+      "stockMin": "Stock must be greater than 0.",
+      "image": "Poster",
+      "imagePreview": "Preview",
+      "submit": "Add",
+      "editSubmit": "Save Changes",
+      "cleanFields": "Clear All Fields",
+      "cancel": "Cancel"
+    }
+  },
+  "ShoppingCart": {
+    "emptyCart": {
+      "message": "Your cart is empty.",
+      "goToList": "Go to Movies List"
+    },
+    "tableHeader": {
+      "movieName": "Movie Name",
+      "price": "Price",
+      "quantity": "Quantity",
+      "removeAll": "Remove All"
+    },
+    "tableBody": {
+      "subtract": "Subtract",
+      "add": "Add",
+      "remove": "Remove"
+    },
+    "totalItems": "Total Items",
+    "totalPrice": "Total",
+    "closeCart": "Close Cart",
+    "checkout": "Go to Checkout"
+  },
+  "checkout": {
+    "contactData": "Contact Data",
+    "fullName": "Full Name",
+    "fullNameRequired": "Full name is required.",
+    "fullNameMinlength": "Full name must be at least 3 characters long.",
+    "email": "E-mail",
+    "emailRequired": "E-mail is required.",
+    "emailPattern": "Invalid format.",
+    "address": "Address",
+    "addressRequired": "Address is required.",
+    "addressMinlength": "Address must be at least 5 characters long.",
+    "paymentField": "Payment",
+    "paymentName": "Name on Card",
+    "paymentNameRequired": "Name on card is required.",
+    "paymentNameMinlength": "Name on card must be at least 3 characters long.",
+    "paymentNumber": "Card Number",
+    "paymentNumberRequired": "Card number is required.",
+    "paymentNumberPattern": "Must be 16 digits.",
+    "paymentNumberOnly": "Only numbers are allowed.",
+    "cvc": "CVC",
+    "cvcRequired": "CVC is required.",
+    "cvcPattern": "Must be 3 digits.",
+    "cvcOnly": "Only numbers are allowed.",
+    "expirationMonth": "Month",
+    "expirationMonthRequired": "Required.",
+    "expirationMonthPattern": "Invalid month (1–12)",
+    "expirationYear": "Year",
+    "expirationYearRequired": "Required.",
+    "expirationYearPattern": "Invalid year.",
+    "submit": "Complete Purchase",
+    "successMessage": "Purchase completed successfully!"
+  },
+  "deleteModal": {
+    "title": "Delete",
+    "message": "Do you really want to delete this movie?",
+    "cancel": "Cancel",
+    "confirm": "Confirm"
+  }
+}

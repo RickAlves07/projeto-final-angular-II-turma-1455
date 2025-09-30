@@ -1,29 +1,29 @@
 @if (allMoviesList().length !== 0) {
 <div>
-  <h1>Lista de Filmes</h1>
+  <h1>{{ 'movieList.PageTitle' | translate }}</h1>
   <div>
     <section>
       <fieldset class="border p-3 mt-4">
-        <legend class="w-auto">Filtros</legend>
+        <legend class="w-auto">{{ 'movieList.filters.filter' | translate }}</legend>
         <div class="form-group form-row input-group">
           <div class="col-6">
-            <label for="movieNameFilter">Nome do Filme</label>
+            <label for="movieNameFilter">{{ 'movieList.filters.name' | translate }}</label>
             <input
               type="text"
               class="form-control"
               id="movieNameFilter"
-              placeholder="Digite o nome de um filme"
+              placeholder="{{ 'movieList.filters.namePlaceholder' | translate }}"
               [(ngModel)]="movieFilterName"
               (ngModelChange)="filterMoviesByName(movieFilterName)"
             />
           </div>
           <div class="col-4">
               <label for="movieGenreFilter">
-                Gênero
+                {{ 'movieList.filters.genre' | translate }}
               </label>
                 <select [(ngModel)]="selectedGenreFilter" class="form-control" id="movieGenreFilter"
                 (ngModelChange)="filterMoviesByGenre(selectedGenreFilter)">
-                  <option selected disabled value="">Escolha...</option>
+                  <option selected disabled value="">{{ 'movieList.filters.genrePlaceholder' | translate }}</option>
                   @for (item of genresList(); track $index) {
                     <option [value]="item">{{ item }}</option>
                   }
@@ -35,7 +35,7 @@
             class="btn w-100"
             [ngClass]="isFiltered ? 'btn btn-secondary' : 'btn btn-outline-secondary'"
             (click)="resetFilters()">
-              Limpar Filtros
+              {{ 'movieList.filters.reset' | translate }}
             </button>
           </div>
         </div>
@@ -51,7 +51,7 @@
         }
       } @else {
         <div class="col">
-          <p>Nenhum filme encontrado.</p>
+          <p>{{ 'movieList.noResults' | translate }}</p>
         </div>
       }
     </div>

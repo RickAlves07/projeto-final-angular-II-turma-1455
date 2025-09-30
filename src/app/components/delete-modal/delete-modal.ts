@@ -1,9 +1,10 @@
 import { Component, Input } from '@angular/core';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-delete-modal',
-  imports: [],
+  imports: [TranslateModule],
   templateUrl: './delete-modal.html',
   styleUrl: './delete-modal.scss'
 })

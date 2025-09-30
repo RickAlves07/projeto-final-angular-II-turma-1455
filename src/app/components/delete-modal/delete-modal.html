@@ -1,13 +1,13 @@
 <div class="modal-header">
-  <h5 class="modal-title">Deletar {{ title }}?</h5>
+  <h5 class="modal-title">{{ 'deleteModal.title' | translate }} {{ title }}?</h5>
   <button type="button" class="btn-close" aria-label="Fechar" (click)="activeModal.dismiss()"></button>
 </div>
 
 <div class="modal-body">
-  <p>Deseja mesmo deletar esse filme?</p>
+  <p>{{ 'deleteModal.message' | translate }}</p>
 </div>
 
 <div class="modal-footer">
-  <button class="btn btn-secondary" (click)="activeModal.dismiss()">Cancelar</button>
-  <button class="btn btn-danger" (click)="activeModal.close('confirm')">Confirmar</button>
+  <button class="btn btn-secondary" (click)="activeModal.dismiss()">{{ 'deleteModal.cancel' | translate }}</button>
+  <button class="btn btn-danger" (click)="activeModal.close('confirm')">{{ 'deleteModal.confirm' | translate }}</button>
 </div>

@@ -9,10 +9,11 @@ import * as CartActions from '../../store/cart.actions';
 import { NgbModal } from '@ng-bootstrap/ng-bootstrap';
 import { DeleteModal } from '../delete-modal/delete-modal';
 import { MoviesService } from '../../services/movies-service';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-movie-card',
-  imports: [RouterModule, CurrencyBRLPipe, CommonModule],
+  imports: [RouterModule, CurrencyBRLPipe, CommonModule, TranslateModule],
   templateUrl: './movie-card.html',
   styleUrl: './movie-card.scss'
 })

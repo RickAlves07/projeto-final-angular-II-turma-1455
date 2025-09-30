@@ -6,10 +6,11 @@ import { Movie } from '../../models/interfaces/imovie';
 import { MoviesService } from '../../services/movies-service';
 import { map, Observable, switchMap } from 'rxjs';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-new-movie',
-  imports: [CommonModule, ReactiveFormsModule, RouterModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterModule, TranslateModule],
   templateUrl: './new-movie.html',
   styleUrl: './new-movie.scss'
 })

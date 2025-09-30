@@ -6,10 +6,11 @@ import { Observable } from 'rxjs';
 import * as CartActions from '../../store/cart.actions';
 import { CurrencyBRLPipe } from "../../pipes/currency-brl.pipe";
 import { Movie } from '../../models/interfaces/imovie';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-shopping-cart',
-  imports: [RouterModule, AsyncPipe, CurrencyBRLPipe, CommonModule],
+  imports: [RouterModule, AsyncPipe, CurrencyBRLPipe, CommonModule, TranslateModule],
   templateUrl: './shopping-cart.html',
   styleUrl: './shopping-cart.scss',
 })

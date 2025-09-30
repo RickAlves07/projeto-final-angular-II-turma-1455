@@ -10,10 +10,11 @@ import {
 import { digitsOnlyValidator } from '../../shared/validators/digits-only.validator';
 import { Observable } from 'rxjs';
 import { Store } from '@ngrx/store';
+import { TranslateModule } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-checkout-form',
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, TranslateModule],
   templateUrl: './checkout-form.html',
   styleUrl: './checkout-form.scss',
 })
@@ -25,7 +26,7 @@ export class CheckoutForm {
 
   regexMes = /^(0?[1-9]|1[0-2])$/;
   regexAno = /^(\d{4})$/;
-  
+
   checkoutForm: FormGroup = this.fb.group({
     nomeCompleto: ['', [Validators.required, Validators.minLength(3)]],
     email: ['', [Validators.required, Validators.email]],

@@ -23,16 +23,16 @@ export class Header {
   }
 
   constructor(private authService: AuthService, private translateService: TranslateService) {
-    this.currentLanguage = this.translateService.getCurrentLang() ?? 'pt-br';
+    const savedLang = localStorage.getItem('selectedLanguage')?? 'pt-br';
+    this.translateService.use(savedLang);
+    this.currentLanguage = savedLang
   }
 
   get isLoggedIn(): boolean {
     const isLoggedIn = this.authService.isAuthenticated();
     if (isLoggedIn) {
-      this.logedTexts.text = 'Logout ';
       this.logedTexts.icon = 'bi-box-arrow-in-left';
     } else {
-      this.logedTexts.text = 'Login ';
       this.logedTexts.icon = 'bi-box-arrow-in-right';
     }
 

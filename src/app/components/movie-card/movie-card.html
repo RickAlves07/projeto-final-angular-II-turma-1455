@@ -20,7 +20,7 @@
         </div>
         <div class="row">
           <button class="btn btn-outline-success" (click)="addToCart()">
-            <span>Adicionar ao Carrinho </span>
+            <span>{{ 'movieCard.add' | translate }}</span>
             <i class="bi bi-plus-lg"></i>
           </button>
         </div>
@@ -30,11 +30,11 @@
                 [routerLink]="['/movie/edit', movie.id]"
                 class="btn btn-outline-primary mt-auto"
               >
-                <span>Editar </span>
+                <span>{{ 'movieCard.edit' | translate }}</span>
                 <i class="bi bi-pencil"></i>
               </button>
               <button class="btn btn-outline-danger" (click)="openDeleteModal(movie)">
-                <span>Deletar </span>
+                <span>{{ 'movieCard.delete' | translate }}</span>
                 <i class="bi bi-x-lg"></i>
               </button>
             </div>

@@ -1,9 +1,9 @@
   <form [formGroup]="checkoutForm" (ngSubmit)="onSubmit()" novalidate>
     <fieldset class="border p-3">
-      <legend class="w-auto">Dados de Contato</legend>
+      <legend class="w-auto">{{ 'checkout.contactData' | translate }}</legend>
       <div class="form-row">
         <div class="form-group">
-          <label for="nomeCompleto">Nome Completo</label>
+          <label for="nomeCompleto">{{ 'checkout.fullName' | translate }}</label>
             <input
             type="text"
             id="nomeCompleto"
@@ -12,13 +12,13 @@
             formControlName="nomeCompleto"
             />
           <div class="invalid-feedback">
-            @if(control('nomeCompleto').touched && control('nomeCompleto').hasError('required')) { <div>Nome é obrigatório.</div> }
-            @if(control('nomeCompleto').touched && control('nomeCompleto').hasError('minlength')) { <div>Mínimo de 3 caracteres.</div> }
+            @if(control('nomeCompleto').touched && control('nomeCompleto').hasError('required')) { <div>{{ 'checkout.fullNameRequired' | translate }}</div> }
+            @if(control('nomeCompleto').touched && control('nomeCompleto').hasError('minlength')) { <div>{{ 'checkout.fullNameMinlength' | translate }}</div> }
           </div>
         </div>
 
         <div class="form-group">
-          <label for="email">E-mail</label>
+          <label for="email">{{ 'checkout.email' | translate }}</label>
           <input
             type="email"
             id="email"
@@ -27,12 +27,12 @@
             formControlName="email"
           />
           <div class="invalid-feedback">
-            @if(control('email').touched && control('email').hasError('required')) { <div>E-mail é obrigatório.</div> }
-            @if(control('email').touched && control('email').hasError('email')) { <div>Formato inválido.</div> }
+            @if(control('email').touched && control('email').hasError('required')) { <div>{{ 'checkout.emailRequired' | translate }}</div> }
+            @if(control('email').touched && control('email').hasError('email')) { <div>{{ 'checkout.emailPattern' | translate }}</div> }
           </div>
         </div>
         <div class="form-group">
-          <label for="endereco">Endereço</label>
+          <label for="endereco">{{ 'checkout.address' | translate }}</label>
           <input
             type="text"
             id="endereco"
@@ -41,19 +41,19 @@
             formControlName="endereco"
           />
           <div class="invalid-feedback">
-            @if(control('endereco').touched && control('endereco').hasError('required')) { <div>Endereço é obrigatório.</div> }
-            @if(control('endereco').touched && control('endereco').hasError('minlength')) { <div>Mínimo de 5 caracteres.</div> }
+            @if(control('endereco').touched && control('endereco').hasError('required')) { <div>{{ 'checkout.addressRequired' | translate }}</div> }
+            @if(control('endereco').touched && control('endereco').hasError('minlength')) { <div>{{ 'checkout.addressMinlength' | translate }}</div> }
           </div>
         </div>
       </div>
     </fieldset>
 
     <fieldset class="border p-3 mt-4">
-      <legend class="w-auto">Pagamento</legend>
+      <legend class="w-auto">{{ 'checkout.paymentField' | translate }}</legend>
 
       <div class="form-row">
         <div class="form-group">
-          <label for="nomeNoCartao">Nome no Cartão</label>
+          <label for="nomeNoCartao">{{ 'checkout.paymentName' | translate }}</label>
           <input
             type="text"
             id="nomeNoCartao"
@@ -62,13 +62,13 @@
             formControlName="nomeNoCartao"
           />
           <div class="invalid-feedback">
-            @if(control('nomeNoCartao').touched && control('nomeNoCartao').hasError('required')) { <div>Obrigatório.</div> }
-            @if(control('nomeNoCartao').touched && control('nomeNoCartao').hasError('minlength')) { <div>Mínimo de 3 caracteres.</div> }
+            @if(control('nomeNoCartao').touched && control('nomeNoCartao').hasError('required')) { <div>{{ 'checkout.paymentNameRequired' | translate }}</div> }
+            @if(control('nomeNoCartao').touched && control('nomeNoCartao').hasError('minlength')) { <div>{{ 'checkout.paymentNameMinlength' | translate }}</div> }
           </div>
         </div>
 
         <div class="form-group">
-          <label for="numeroCartao">Número do Cartão</label>
+          <label for="numeroCartao">{{ 'checkout.paymentNumber' | translate }}</label>
           <input
             type="text"
             id="numeroCartao"
@@ -78,14 +78,14 @@
             formControlName="numeroCartao"
           />
           <div class="invalid-feedback">
-            @if(control('numeroCartao').touched && control('numeroCartao').hasError('required')) { <div>Obrigatório.</div> }
-            @if(control('numeroCartao').touched && (control('numeroCartao').hasError('minlength') || control('numeroCartao').hasError('maxlength'))) { <div>Deve ter 16 dígitos.</div> }
-            @if(control('numeroCartao').touched && control('numeroCartao').hasError('digitsOnly')) { <div>Apenas números permitidos.</div> }
+            @if(control('numeroCartao').touched && control('numeroCartao').hasError('required')) { <div>{{ 'checkout.paymentNumberRequired' | translate }}</div> }
+            @if(control('numeroCartao').touched && (control('numeroCartao').hasError('minlength') || control('numeroCartao').hasError('maxlength'))) { <div>{{ 'checkout.paymentNumberPattern' | translate }}</div> }
+            @if(control('numeroCartao').touched && control('numeroCartao').hasError('digitsOnly')) { <div>{{ 'checkout.paymentNumberOnly' | translate }}</div> }
           </div>
         </div>
 
         <div class="form-group">
-          <label for="codigoSeguranca">CVC</label>
+          <label for="codigoSeguranca">{{ 'checkout.cvc' | translate }}</label>
           <input
             type="text"
             id="codigoSeguranca"
@@ -95,14 +95,14 @@
             formControlName="codigoSeguranca"
           />
           <div class="invalid-feedback">
-            @if(control('codigoSeguranca').touched && control('codigoSeguranca').hasError('required')) { <div>Obrigatório.</div> }
-            @if(control('codigoSeguranca').touched && (control('codigoSeguranca').hasError('minlength') || control('codigoSeguranca').hasError('maxlength'))) { <div>Deve ter 3 dígitos.</div> }
-            @if(control('codigoSeguranca').touched && control('codigoSeguranca').hasError('digitsOnly')) { <div>Apenas números permitidos.</div> }
+            @if(control('codigoSeguranca').touched && control('codigoSeguranca').hasError('required')) { <div>{{ 'checkout.cvcRequired' | translate }}</div> }
+            @if(control('codigoSeguranca').touched && (control('codigoSeguranca').hasError('minlength') || control('codigoSeguranca').hasError('maxlength'))) { <div>{{ 'checkout.cvcPattern' | translate }}</div> }
+            @if(control('codigoSeguranca').touched && control('codigoSeguranca').hasError('digitsOnly')) { <div>{{ 'checkout.cvcOnly' | translate }}</div> }
           </div>
         </div>
 
         <div class="form-group">
-          <label for="validadeMes">Mês</label>
+          <label for="validadeMes">{{ 'checkout.expirationMonth' | translate }}</label>
           <input
             type="text"
             id="validadeMes"
@@ -112,13 +112,13 @@
             formControlName="validadeMes"
           />
           <div class="invalid-feedback">
-            @if(control('validadeMes').touched && control('validadeMes').hasError('required')) { <div>Obrigatório.</div> }
-            @if(control('validadeMes').touched && control('validadeMes').hasError('pattern')) { <div>Mês inválido (1–12).</div> }
+            @if(control('validadeMes').touched && control('validadeMes').hasError('required')) { <div>{{ 'checkout.expirationMonthRequired' | translate }}</div> }
+            @if(control('validadeMes').touched && control('validadeMes').hasError('pattern')) { <div>{{ 'checkout.expirationMonthPattern' | translate }}</div> }
           </div>
         </div>
 
         <div class="form-group">
-          <label for="validadeAno">Ano</label>
+          <label for="validadeAno">{{ 'checkout.expirationYear' | translate }}</label>
           <input
             type="text"
             id="validadeAno"
@@ -128,16 +128,16 @@
             formControlName="validadeAno"
           />
           <div class="invalid-feedback">
-            @if(control('validadeAno').touched && control('validadeAno').hasError('required')) { <div>Obrigatório.</div> }
-            @if(control('validadeAno').touched && control('validadeAno').hasError('pattern')) { <div>Ano inválido.</div> }
+            @if(control('validadeAno').touched && control('validadeAno').hasError('required')) { <div>{{ 'checkout.expirationYearRequired' | translate }}</div> }
+            @if(control('validadeAno').touched && control('validadeAno').hasError('pattern')) { <div>{{ 'checkout.expirationYearPattern' | translate }}</div> }
           </div>
         </div>
       </div>
     </fieldset>
 
-    <button type="submit" class="btn btn-primary btn-block mt-3" [disabled]="!checkoutForm.valid || !(cartItems$ | async)?.length">Finalizar Compra</button>
+    <button type="submit" class="btn btn-primary btn-block mt-3" [disabled]="!checkoutForm.valid || !(cartItems$ | async)?.length">{{ 'checkout.submit' | translate }}</button>
 
     @if(submittedData()) {
-        <div class="alert alert-success mt-3"> Compra enviada com sucesso!</div>
+        <div class="alert alert-success mt-3">{{ 'checkout.successMessage' | translate }}</div>
       }
   </form>

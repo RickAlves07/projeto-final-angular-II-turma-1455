@@ -1,10 +1,10 @@
 <div class="bg-light" [ngClass]="isCheckout ? 'shopping-cart-checkout' : 'shopping-cart-fixed'">
   <div>
     @if ((cartItems$ | async)?.length === 0) {
-      <p>Seu carrinho está vazio.</p>
+      <p>{{ 'ShoppingCart.emptyCart.message' | translate }}</p>
       @if (isCheckout) {
         <button class="btn btn-primary" [routerLink]="['/home']">
-          Ir para a Lista de Filmes
+          {{ 'ShoppingCart.emptyCart.goToList' | translate }}
         </button>
       }
     } @else {
@@ -12,16 +12,16 @@
     <table class="table table-striped">
       <thead>
         <tr>
-          <th scope="col" class="col-9">Nome do produto</th>
-          <th scope="col" class="col-1">Preço</th>
-          <th scope="col" class="col-2">Quantidade</th>
+          <th scope="col" class="col-9">{{ 'ShoppingCart.tableHeader.movieName' | translate }}</th>
+          <th scope="col" class="col-1">{{ 'ShoppingCart.tableHeader.price' | translate }}</th>
+          <th scope="col" class="col-2">{{ 'ShoppingCart.tableHeader.quantity' | translate }}</th>
           <th scope="col" class="col-1">
              <button
                 class="btn btn-outline-danger"
-                title="Remover Todos os filmes"
+                title="{{ 'ShoppingCart.tableHeader.removeAll' | translate }}"
                 (click)="removeAll()"
               >
-                Remover Tudo
+                {{ 'ShoppingCart.tableHeader.removeAll' | translate }}
               </button>
           </th>
         </tr>
@@ -36,7 +36,7 @@
               <button
                 class="btn btn-outline-danger"
                 (click)="subtractItem(item.id)"
-                title="Diminuir"
+                title="{{ 'ShoppingCart.tableBody.subtract' | translate }}"
               >
                 <i class="bi bi-dash-lg"></i>
               </button>
@@ -44,7 +44,7 @@
               <button
                 class="btn btn-outline-success"
                 (click)="addToCart(item)"
-                title="Adicionar"
+                title="{{ 'ShoppingCart.tableBody.add' | translate }}"
               >
                 <i class="bi bi-plus-lg"></i>
               </button>
@@ -55,7 +55,7 @@
               <button
                 class="btn btn-outline-danger"
                 (click)="removeItem(item.id)"
-                title="Remover Item"
+                title="{{ 'ShoppingCart.tableBody.remove' | translate }}"
               >
                 <i class="bi bi-trash"></i>
               </button>
@@ -72,8 +72,8 @@
    <table class="table table-striped">
     <tbody class="align-middle">
       <tr class="table-info">
-        <td>Total de Itens: {{ (totalItems$ | async) ?? 0 }}</td>
-        <td>Valor Total: {{ (total$ | async) ?? 0 | currencyBRL }}</td>
+        <td>{{ 'ShoppingCart.totalItems' | translate }}: {{ (totalItems$ | async) ?? 0 }}</td>
+        <td>{{ 'ShoppingCart.totalPrice' | translate }}: {{ (total$ | async) ?? 0 | currencyBRL }}</td>
       </tr>
     </tbody>
    </table>
@@ -81,10 +81,10 @@
   @if (!isCheckout) {
   <div class="d-flex justify-content-center shopping-cart-actions">
     <button class="btn btn-outline-primary mt-auto" (click)="closeCart()">
-      Fechar Carrinho
+      {{ 'ShoppingCart.closeCart' | translate }}
     </button>
     <button [routerLink]="['/checkout']" class="btn btn-primary mt-auto" (click)="closeCart()" [disabled]="!(cartItems$ | async)?.length">
-      Ir para o Checkout
+      {{ 'ShoppingCart.checkout' | translate }}
     </button>
   </div>
   }
