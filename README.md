@@ -2,10 +2,6 @@
 
 Este é um projeto desenvolvido como trabalho final para a disciplina de Angular III modulo II, Turma 1455. O objetivo é demonstrar conhecimentos em Angular, incluindo componentes, serviços, rotas, pipes, validações e gerenciamento de estado.
 
-## 🛠️ Tecnologias e Serviços Utilizadas
-
-- [Angular CLI 20](https://github.com/angular/angular-cli)
-
 ## 🚀 Executar o Projeto
 
 ### Requisitos para execução:
@@ -14,7 +10,7 @@ Possuir os seguintes itens instalados na maquina:
 
 1. [Node.js | Versão: ^20](https://nodejs.org/pt/download)
 
-2. [Angular CLI | Versão: 20](https://v16.angular.io/docs)
+2. [Angular CLI | Versão: 20](https://angular.dev/)
 
 3. [NPM](https://www.npmjs.com/package/npm?activeTab=versions)
  
