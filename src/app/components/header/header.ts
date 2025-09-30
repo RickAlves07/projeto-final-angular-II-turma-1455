@@ -2,10 +2,11 @@ import { Component, EventEmitter, Input, Output } from '@angular/core';
 import { CartStatus } from '../cart-status/cart-status';
 import { RouterModule } from '@angular/router';
 import { AuthService } from '../../services/auth-service';
+import { TranslateModule, TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'app-header',
-  imports: [CartStatus, RouterModule],
+  imports: [CartStatus, RouterModule, TranslateModule],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
@@ -18,7 +19,7 @@ export class Header {
     icon: 'bi-box-arrow-in-right',
   }
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private translateService: TranslateService) {}
 
   get isLoggedIn(): boolean {
     const isLoggedIn = this.authService.isAuthenticated();
