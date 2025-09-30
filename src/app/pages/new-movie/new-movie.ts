@@ -48,7 +48,7 @@ export class NewMovie {
       genre: new FormControl('', [Validators.required]),
       platform: new FormControl('', [Validators.required]),
       price: new FormControl<number | null>(null, [Validators.required, Validators.min(0.01)]),
-      description: new FormControl('', [Validators.required, Validators.maxLength(300)]),
+      description: new FormControl('', [Validators.required, Validators.maxLength(500)]),
       availableInStock: new FormControl<number | null>(null, [Validators.required, Validators.min(1)])
     });
 

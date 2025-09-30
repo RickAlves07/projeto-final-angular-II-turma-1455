@@ -46,7 +46,7 @@ export class Register {
           this.submittedData.set(this.registerForm.value);
         }
         this.authService.scheduleLogout();
-        this.router.navigate(['']);
+        this.router.navigate(['/login']);
       },
       error: (err) => {
         const a = "Cadastro inválido. Por favor, digite credenciais válidas!";

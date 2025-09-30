@@ -41,7 +41,7 @@
       "priceMin": "Price must be greater than 0.",
       "description": "Description",
       "descriptionRequired": "Description is required.",
-      "descriptionMaxlength": "Description must be at most 300 characters long.",
+      "descriptionMaxlength": "Description must be at most 500 characters long.",
       "stock": "Stock",
       "stockRequired": "Stock is required.",
       "stockMin": "Stock must be greater than 0.",
