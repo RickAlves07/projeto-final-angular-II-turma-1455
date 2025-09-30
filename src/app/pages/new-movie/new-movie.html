@@ -14,7 +14,7 @@
         />
         <div class="invalid-feedback">
           @if(control('title').touched && control('title').hasError('required')) { <div>Titulo é obrigatório.</div> }
-          @if(control('title').touched && control('title').hasError('maxlength')) { <div>Tamanho maximo atigingido (30 caracteres).</div> }
+          @if(control('title').touched && control('title').hasError('maxlength')) { <div>Tamanho maximo atigingido (70 caracteres).</div> }
         </div>
       </div>
 
@@ -33,7 +33,7 @@
       </div>
 
       <div class="form-group">
-        <label for="platform">platforma</label>
+        <label for="platform">Plataforma</label>
         <input
           type="text"
           id="platform"
@@ -73,7 +73,7 @@
         ></textarea>
         <div class="invalid-feedback">
           @if(control('description').touched && control('description').hasError('required')) { <div>Descrição é obrigatório.</div> }
-          @if(control('description').touched && control('description').hasError('maxlength')) { <div>Tamanho maximo atigingido (200 caracteres).</div> }
+          @if(control('description').touched && control('description').hasError('maxlength')) { <div>Tamanho maximo atigingido (300 caracteres).</div> }
         </div>
       </div>
 
@@ -107,10 +107,10 @@
     </div>
     <div>
       @if (!isEditMode) {
-        <button type="button" class="btn btn-outline-primary btn-block mt-3" [disabled]="!movieForm.valid || !selectedFile">Cadastrar</button>
+        <button type="submit" class="btn btn-outline-primary btn-block mt-3" [disabled]="!movieForm.valid || !selectedFile">Cadastrar</button>
         <button type="button" class="btn btn-outline-secondary btn-block mt-3" (click)="formClear()">Limpar Todos os Campos</button>
       } @else {
-        <button type="button" class="btn btn-primary btn-block mt-3" [disabled]="!movieForm.valid">Salvar Alterações</button>
+        <button type="submit" class="btn btn-primary btn-block mt-3" [disabled]="!movieForm.valid">Salvar Alterações</button>
       }
 
       <button type="button" class="btn btn-secondary btn-block mt-3" [routerLink]="['/home']">Cancelar</button>

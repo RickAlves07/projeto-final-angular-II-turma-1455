@@ -43,11 +43,11 @@ export class NewMovie {
 
   initMovieForm() {
     this.movieForm = new FormGroup({
-      title: new FormControl('', [Validators.required, Validators.maxLength(30)]),
+      title: new FormControl('', [Validators.required, Validators.maxLength(70)]),
       genre: new FormControl('', [Validators.required]),
       platform: new FormControl('', [Validators.required]),
       price: new FormControl<number | null>(null, [Validators.required, Validators.min(0.01)]),
-      description: new FormControl('', [Validators.required, Validators.maxLength(200)]),
+      description: new FormControl('', [Validators.required, Validators.maxLength(300)]),
       availableInStock: new FormControl<number | null>(null, [Validators.required, Validators.min(1)])
     });
 

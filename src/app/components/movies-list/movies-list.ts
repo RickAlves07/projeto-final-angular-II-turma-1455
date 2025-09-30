@@ -28,7 +28,7 @@ export class MoviesList {
     this.moviesService.getAll().subscribe(movies => {
       this.allMoviesList.set(movies);
       this.movies.set(this.allMoviesList());
-      const uniqueCategories = Array.from(new Set(movies.map(movie => movie.genre)));
+      const uniqueCategories = Array.from(new Set(movies.map(movie => movie.genre.trim())));
       this.genresList.set(uniqueCategories);
     });
   }
@@ -47,7 +47,7 @@ export class MoviesList {
     this.isFiltered = true;
     const filtered = (this.allMoviesList() ?? []).filter((movie) =>
       movie.title.toLocaleLowerCase().includes(this.movieFilterName.toLocaleLowerCase()) &&
-      (this.selectedGenreFilter === '' || movie.genre.toLocaleLowerCase().includes(this.selectedGenreFilter.toLocaleLowerCase()))
+      (this.selectedGenreFilter === '' || movie.genre.toLocaleLowerCase().includes(this.selectedGenreFilter.toLocaleLowerCase().trim()))
     );
     this.movies.set(filtered);
   }
