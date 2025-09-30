@@ -4,20 +4,69 @@ Este é um projeto desenvolvido como trabalho final para a disciplina de Angular
 
 ## 🛠️ Tecnologias e Serviços Utilizadas
 
-- [Angular CLI 20.1.5](https://github.com/angular/angular-cli)
+- [Angular CLI 20](https://github.com/angular/angular-cli)
 
 ## 🚀 Executar o Projeto
 
-1. **Instale as dependências:**
-   ```bash
-   npm install
-   ```
+### Requisitos para execução:
 
-2. **Inicie o servidor de desenvolvimento:**
-   ```bash
-   ng serve
-   ```
-   Acesse `http://localhost:4200/` no navegador.
+Possuir os seguintes itens instalados na maquina:
+
+1. [Node.js | Versão: ^20](https://nodejs.org/pt/download)
+
+2. [Angular CLI | Versão: 20](https://v16.angular.io/docs)
+
+3. [NPM](https://www.npmjs.com/package/npm?activeTab=versions)
+ 
+---
+ 
+### Iniciando a Aplicação Automaticamente:
+
+Para iniciar tanto o projeto frontend quando a api backend, basta executar o arquivo `init-setup-all.bat`.  
+
+Acesse a aplicação em qualquer navegador via Url  `http://localhost:4200`.
+ 
+Na pasta do projeto estão os arquivos `.bat` onde possuem o fluxo de de instalação das dependencias e inicialização das aplicações
+
+1. `init-setup-all.bat` | Executa o frontend e a api backend
+
+2. `init-setup-frontend.bat` | Executa apenas o frontend
+
+3. `init-setup-backend.bat` | Executa apenas a api backend
+ 
+---
+ 
+### Iniciando a Aplicação Manualmente: 
+
+#### Frontend
+Na pasta do projeto:
+
+1. Instale as dependências com `npm install` via cmd.
+
+2. Inicie o a aplicação com `npm start` via cmd.
+
+3. Acesse a aplicação frontend em qualquer navegador via Url  `http://localhost:4200`.
+
+#### Backend
+Navegar ate a pasta `/movies-api` na pasta do projeto:
+
+1. Dentro da pasta, tambem instale as dependências com `npm install` via cmd.
+
+2. Inicie o a aplicação com `npm start` via cmd.
+
+3. A Api Backend é executada no endereço  `http://localhost:3000`.
+
+## 🙍‍♂️ Credenciais
+É possivel cadastrar novos usuarios de acesso no banco em `http://localhost:4200/register`
+
+Para realizar o login, já existe um usuario pre-cadastrado no banco de dados.
+- Email: `admin@email.com`
+- Senha: `123` 
+
+
+## ⚙️ Configurações
+As configurações do projeto e da api estão nos arquivos `app/environments` e `movies-api/config.js`
+
 
 ## 🗺️ Rotas Principais
 
